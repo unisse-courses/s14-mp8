@@ -1,1 +1,5 @@
-# s14-mp8
+# MilkTea Lab
+
+## Team Members:
+
+*CHONG, Dianne
