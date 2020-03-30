@@ -1,2 +1,37 @@
-<h1>Welcome!</h1>
-<p>Hello World!</p>s
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <section id="blog" class="container">
+        <div class="row justify-content-center m-5">
+            <h1>Menu</h1>
+        </div>
+        <div class="row">
+            
+            {{#if product}}
+                {{#each product}}
+                    <div class="text-center col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ this.img }}" alt="Card image cap"> <!--tea1 - Photo by Rosalind Chang on Unsplash-->
+                            <div class="card-body">
+                                <h5 class="card-title">Pearl Milk Tea</h5>
+                                <p class="card-text">280.00</p>
+                                <button type="button" id="addToCart" class="btn btn-primary">Add to Cart</button>
+                                <br><br>
+                            </div>
+                        </div>  
+                    </div>
+                {{/each}}
+            {{else}}
+            <p>No products yet</p>
+            {{/if}}
+
+        </div>
+    </section>
+    
+</body>
+</html>

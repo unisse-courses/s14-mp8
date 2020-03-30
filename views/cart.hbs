@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="cartSection">
+        <div class="cartItem">
+            <img class="col-sm-3 center" src="./img/icon1.png"> <!--<a target="_blank" href="https://icons8.com/icons/set/tea">Tea icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+            <h3 class="description">Pearl Milk Tea</h3>
+            <h4 class="description">280.00</h4>
+            <h5 class="description">x2</h5>
+        </div>
+
+        <div class="cartItem">
+            <img class="col-sm-3 center" src="./img/icon1.png">
+            <h3 class="description">Pearl Milk Tea</h3>
+            <h4 class="description">280.00</h4>
+            <h5 class="description">x2</h5>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="cartFunctions">
+        <h3>TOTAL: 1120</h3>
+        <form action="/action_page.php">
+            <p>Please select receiving mode:</p>
+            <input type="radio" id="pickUp" name="mode" value="pickUp">
+                <label for="pickUp">Pick Up</label><br>
+            <input type="radio" id="delivery" name="mode" value="delivery">
+                <label for="delivery">Delivery</label><br>
+            <button class="btn btn-primary" type="submit">Check Out and Place Order</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+/*
+    References: W3 Schools, LSCS Bootstrap Workshop files
+*/
+
+/* main */
+.container {
+    display: block;
+    align-items: center;
+}
+
+/* footer */
+footer {
+    display: block;
+    text-align: center;
+    background-color: #dbd9d9;
+}
+
+/* navigation */
+.navbar a:hover {
+    background-color: rgb(17, 171, 243);
+    color: rgb(250, 245, 245);
+}
+
+.navbar {
+    background-color: rgb(13, 6, 73);
+    overflow: hidden;
+    padding: 5px 5px;
+    border-bottom: 2px;
+    border-top: 2px;
+    margin: auto;
+}
+  
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a.active {
+    background-color: rgb(28, 130, 170);
+    color: white;
+}
+
+/*Home*/
+.header {
+    background-image: url('../img/cafe.jpg');   /*Photo by daan evers on Unsplash*/
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    /*width: 900px;*/
+    align-items: center;
+}
+
+.description {
+    z-index: 3; 
+}
+
+.description h1 { 
+    color:rgb(255, 255, 255);
+    font-size: 60px;    
+    font-weight: 900;
+}
+
+.description p {
+	color:rgb(216, 216, 216);
+	font-size: 20px;
+	width: 50%;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.description .btn {
+	border:1px  solid #F97300;
+	background:#F97300;
+    color:#fff;
+    align-items: center;
+}
+
+.row img {
+    height: 200px;
+    width: 200px;
+}
+
+/*Cart*/
+
+.cartItem {
+    border-bottom: 2px solid rgb(98, 136, 180);
+    width: 80%;
+    display: center;
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+    background-color: rgba(132, 225, 248, 0.925);
+}
+
+.cartItem img {
+    height: 100px;
+    width: 120px;
+    display: float;
+}
+
+.cartFunctions .btn {
+    display: float center;
+    width: 230px;
+}
+
+/*Transaction*/
+.transaction img {
+    height: 70px;
+    width: 100px;
+    display: float;
+}
+
+.transaction {
+    border-bottom: 2px solid rgb(98, 136, 180);
+    width: 60%;
+    display: center;
+    margin: auto;
+    padding: 10px;
+    text-align: right;
+    background-color: rgba(132, 225, 248, 0.925);
+}
+
+.transaction button {
+    display: center;
+    width: 170px;
+}
+
+/*Register*/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+  
+.register {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.register h1 {
+    text-align: center;
+}
+
+.register button {
+    width: 100%;
+    background-color: rgb(51, 54, 226);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login button {
+    width: 100%;
+    background-color: rgb(51, 54, 226);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

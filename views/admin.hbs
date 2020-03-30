@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form action="/action_page.php">
+            <p>Please select action:</p>
+
+            <input type="radio" id="addMenuItem" name="action" value="addMenuItem">
+                <label for="addMenuItem">Add Menu Item</label><br>
+
+            <input type="radio" id="editMenuItem" name="action" value="editMenuItem">
+                <label for="editMenuItem">Edit Menu Action</label><br>
+
+            <input type="radio" id="viewMenuItem" name="action" value="viewMenuItem">
+                <label for="viewMenuItem">View Menu Item</label><br>
+
+            <input type="radio" id="deleteMenuItem" name="action" value="deleteMenuItem">
+                <label for="deleteMenuItem">Delete Menu Action</label><br>
+
+            <button class="btn btn-primary" type="submit">Perform Action</button>
+    </form>
+</body>
+</html>
