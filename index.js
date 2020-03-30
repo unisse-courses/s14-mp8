@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.get('/', function(req, res) {
     res.render('home', {
-        title : 'Welcome to Milk Tea Lab!',
+        title : 'Welcome to Milk Tea Labs!',
     });
 });
 //-------------------------------------------------------------------------------------------
