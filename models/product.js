@@ -16,8 +16,8 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const productSchema = new mongoose.Schema({
-    name: { type: String, lowercase: true, required: [true, "No name provided"] },
-    description: { type: String, lowercase: true, required: [true, "No description provided"] },
+    name: { type: String, required: [true, "No name provided"] },
+    description: { type: String, required: [true, "No description provided"] },
     price: { type: Number, required: [true, "No price provided"] },
     img: { type: String, lowercase: true, required: true }
 });

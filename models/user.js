@@ -16,27 +16,13 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const userSchema = new mongoose.Schema({
-    name:{type: string, required:[true, "Please provide a Name!"]},
-    username : {type : string, required:[true, "No Username"]},
-    password : {type : string, required:[true, "No Password"]},
-    
-    
-    
-    
-    
-    
-    
-//    cart: [{ type: Schema.Types.ObjectId, ref: 'cart', required: true }],
-//    transactionHistory: { type: Schema.Types.ObjectId, ref: 'transaction', required: true },
-//    name: { type: String, lowercase: true, required: [true, "No name provided"] },
-//    username: { type: String, lowercase: true, required: [true, "No username provided"], index: { unique: true } },
-//    password: { type: String, required: [true, "No password provided"] },
-//    address: { type: String, required: [true, "No address provided"] },
-//    favorites: [{ type: Schema.Types.ObjectId, ref: 'product', required: true }],
-//    img: { type: String, lowercase: true, required: true },
-//    isAdmin: { type: Boolean, required: true }
-                                       
-                                       
+    name:{type: String, required:[true, "Please provide a Name!"]},
+    username : {type : String, lowercase: true, required:[true, "No Username"]},
+    password : {type : String, required:[true, "No Password"]},
+    address : {type : String, required:[true, "No Address"]},
+    favorites: {type: Schema.Types.ObjectId, required : false},
+    isAdmin : {type: Boolean, required : true},
+    cart: [{type: Schema.Types.ObjectId, required : false}]
 });
 
   /** README **

@@ -32,6 +32,7 @@ app.get(["/", "/home"], function(req, res) {
 app.get('/admin', function(req, res) {
     res.render('admin', {
         title : 'Administrator Page',
+        layout: 'adminLayout'
     });
 });
 
@@ -112,6 +113,12 @@ app.get('/search', function(req, res) {
     });
 });
 
+
+app.get('/users', function(req, res) {
+    res.render('search', {
+        title : 'Search and Filter',
+    });
+});
 app.use(express.static('public'));
 
 app.listen(port, function() {
