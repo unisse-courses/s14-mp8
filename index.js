@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 
-// Importing the model
+// MODEL IMPORTS
 const productModel = require('./models/product');
 
 const app = express();
@@ -14,7 +14,7 @@ app.engine('hbs', exphbs({
     extname: 'hbs',
     defaultView: 'main',
     layoutsDir: path.join(__dirname, '/views/layouts'),
-    partialsDir: path.join(__dirname, '/views/partials'),
+    partialsDir: path.join(__dirname, '/views/partials')
 }));
 
 app.set('view engine', 'hbs');
@@ -23,11 +23,18 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.get('/', function(req, res) {
+app.get(["/", "/home"], function(req, res) {
     res.render('home', {
         title : 'Welcome to Milk Tea Labs!',
     });
 });
+
+app.get('/admin', function(req, res) {
+    res.render('admin', {
+        title : 'Administrator Page',
+    });
+});
+
 //-------------------------------------------------------------------------------------------
 //menu route
 app.get('/menu', function(req, res) {
@@ -102,12 +109,6 @@ app.get('/editprofile', function(req, res) {
 app.get('/search', function(req, res) {
     res.render('search', {
         title : 'Search and Filter',
-    });
-});
-
-app.get('/admin', function(req, res) {
-    res.render('admin', {
-        title : 'Administrator Page',
     });
 });
 
