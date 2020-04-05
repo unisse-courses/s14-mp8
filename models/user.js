@@ -14,6 +14,7 @@ const options = { useNewUrlParser: true,
   useFindAndModify: false };
 
 mongoose.connect(databaseURL, options);
+mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
     name:{type: String, required:[true, "Please provide a Name!"]},

@@ -39,7 +39,7 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.get(["/", "/home"], function(req, res) {
+app.get(["/", "/home", "/logout"], function(req, res) {
     res.render('home', {
         title : 'Welcome to Milk Tea Labs!',
     });
@@ -125,18 +125,6 @@ app.get('/editprofile', function(req, res) {
     });
 });
 
-app.get('/search', function(req, res) {
-    res.render('search', {
-        title : 'Search and Filter',
-    });
-});
-
-
-app.get('/users', function(req, res) {
-    res.render('search', {
-        title : 'Search and Filter',
-    });
-});
 app.use(express.static('public'));
 
 app.listen(port, function() {
