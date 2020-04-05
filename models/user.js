@@ -17,7 +17,7 @@ mongoose.connect(databaseURL, options);
 
 const userSchema = new mongoose.Schema({
     name:{type: String, required:[true, "Please provide a Name!"]},
-    username : {type : String, lowercase: true, required:[true, "No Username"]},
+    username : {type : String, lowercase: true, required:[true, "No Username"], unique: true},
     password : {type : String, required:[true, "No Password"]},
     address : {type : String, required:[true, "No Address"]},
     favorites: {type: mongoose.Schema.Types.ObjectId, required : false},
