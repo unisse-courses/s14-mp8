@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
     description: { type: String, required: [true, "No description provided"]},
     price: { type: Number,required: [true, "No price provided"]},
     img: { type: String, required:[true, "No image"]},
-}});
+});
 
     //.toObject: { virtuals: true }.toJSON: { virtuals: true }
     
