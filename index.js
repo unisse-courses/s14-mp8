@@ -129,7 +129,6 @@ app.post('/addProduct' , function(req,res){
 });
 
 app.get('/products', function(req, res) {
-  // Retrieves all authors
   productModel.find({}, function(err, products) {
     res.send(products);
   });
