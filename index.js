@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
+const mongodb = require('mongodb');
 
 // MODEL IMPORTS
 const productModel = require('./models/product.js');
@@ -13,45 +14,17 @@ const transactionModel = require('./models/transaction.js');
 const app = express();
 const port = 3000;
 
-const { MongoClient } = require("mongodb");
+const mongoClient = mongodb.MongoClient;
+const url = "mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/test?retryWrites=true&w=majority";
 
-
-const url = "mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/test?retryWrites=true&w=majority"
-const client = new MongoClient(url, {
-    useUnifiedTopology:true
-});
+const options = { useUnifiedTopology :true};
 
 const dbName ="MilkTeaLabs";
+
 const colUsers = "users";
 const colCart = "cart";
 const colTransaction = "transaction";
 const colProduct = "product";
-
-async function addProduct(){
-    try{
-        await client.connect();
-        console.log("Connected");
-        
-        const db = client.db(dbName);
-        
-        const col = db.collection(colProduct);
-        
-        var product = 
-        {
-            name: "Pearl Milk Tea",
-            description: "Classic Milk Tea",
-            price: "200",
-            img: "/img/tea1.png"
-        };
-        
-        col.insertOne(product);   
-    }
-    catch(err){
-        console.log(err.stack);
-    }
-}
-
-addProduct();
 
 app.engine('hbs', exphbs({
     extname: 'hbs',
@@ -82,33 +55,20 @@ app.get('/admin', function(req, res) {
 //-------------------------------------------------------------------------------------------
 //menu route
 app.get('/menu', function(req, res) {
-    res.render('menu', {
+    mongoClient.connect(url, options, function(err, client) {
+        if(err) throw err;
+        const dbo = client.db(dbName);
         
-    });
-});
+        dbo.collection(colProduct).find({}).toArray(function(err, result) {
+            if(err) throw err;
 
-// Students route
-app.get('/students', function(req, res) {
-    /** == README == **
-      This used to hold the mongodb connection and find.
-      But now, using only the model, we use the same find parameter.
-      Using the query helper sort() so we also have the exec() function
-      to be able to actually execute the query.
-    **/
-    studentModel.find({}).sort({ name: 1 }).exec(function(err, result) {
-      // Handlebars fix!
-      // Because of this error warning:
-      // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
-      // we need to convert each object returned from the find to a plain JS object
-      var studentObjects = [];
-  
-      result.forEach(function(doc) {
-        studentObjects.push(doc.toObject());
-      });
-      // end handlebars fix!
-  
-      res.render('students', { title: 'Students', students: studentObjects });
-      // try passing result for students instead of studentObjects to see the error!
+            console.log("Read Successful!");
+            client.close();
+            res.render('menu', { 
+                title: 'Menu',
+                product: result
+            });
+        });
     });
 });
 

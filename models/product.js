@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const databaseURL = 'mongodb://localhost:27017/transactiondb';
+const databaseURL = 'mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/test?retryWrites=true&w=majority';
 
 //Fix the rest of this below
 
