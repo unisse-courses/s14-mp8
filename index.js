@@ -88,12 +88,6 @@ app.post('/addProduct' , function(req,res){
     });
 });
 
-app.get('/products', function(req, res) {
-  productModel.find({}, function(err, products) {
-    res.send(products);
-  });
-});
-
 //-------------------------------------------------------------------------------------------
 app.get('/cart', function(req, res) {
     res.render('cart', {
@@ -104,6 +98,7 @@ app.get('/cart', function(req, res) {
 app.get('/history', function(req, res) {
     res.render('history', {
         title : 'Transaction History',
+        layout: 'mainLoggedIn'
     });
 });
 
@@ -119,9 +114,16 @@ app.get('/login', function(req, res) {
     });
 });
 
+app.get('/loggedIn', function(req,res){
+   res.render('home',{
+        layout:'mainLoggedIn' 
+   });
+});
+
 app.get('/editprofile', function(req, res) {
     res.render('editprofile', {
         title : 'Edit User Profile',
+        layout: 'mainLoggedIn'
     });
 });
 
