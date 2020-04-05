@@ -5,10 +5,53 @@ const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 
 // MODEL IMPORTS
-const productModel = require('./models/product');
+const productModel = require('./models/product.js');
+const cartModel = require('./models/cart.js');
+const userModel = require('./models/user.js');
+const transactionModel = require('./models/transaction.js');
 
 const app = express();
 const port = 3000;
+
+const { MongoClient } = require("mongodb");
+
+
+const url = "mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/test?retryWrites=true&w=majority"
+const client = new MongoClient(url, {
+    useUnifiedTopology:true
+});
+
+const dbName ="MilkTeaLabs";
+const colUsers = "users";
+const colCart = "cart";
+const colTransaction = "transaction";
+const colProduct = "product";
+
+async function addProduct(){
+    try{
+        await client.connect();
+        console.log("Connected");
+        
+        const db = client.db(dbName);
+        
+        const col = db.collection(colProduct);
+        
+        var product = 
+        {
+            name: "Pearl Milk Tea",
+            description: "Classic Milk Tea",
+            price: "200",
+            img: "/img/tea1.png"
+        };
+        
+        col.insertOne(product);   
+    }
+    catch(err){
+        console.log(err.stack);
+    }
+}
+
+addProduct();
 
 app.engine('hbs', exphbs({
     extname: 'hbs',
@@ -40,11 +83,7 @@ app.get('/admin', function(req, res) {
 //menu route
 app.get('/menu', function(req, res) {
     res.render('menu', {
-        title : 'Menu',
-        menuItems: [
-            {name: 'Pearl Milk Tea', price: '150'},
-            {name: 'Chocolate Milk Tea', price: '170'},
-        ]
+        
     });
 });
 
@@ -75,6 +114,26 @@ app.get('/students', function(req, res) {
 
 //add menu item
 //app.post()
+
+app.post('/addProduct' , function(req,res){
+    const product = new productModel({
+        name: req.body.name,
+        description:req.body.description,
+        price:req.body.price
+    });
+    
+    product.save(function (err,result){
+        if (err) throw err;
+        res.send(result.toObject());
+    });
+});
+
+app.get('/products', function(req, res) {
+  // Retrieves all authors
+  productModel.find({}, function(err, products) {
+    res.send(products);
+  });
+});
 
 //-------------------------------------------------------------------------------------------
 app.get('/cart', function(req, res) {

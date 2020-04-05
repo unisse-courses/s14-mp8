@@ -20,9 +20,9 @@ const userSchema = new mongoose.Schema({
     username : {type : String, lowercase: true, required:[true, "No Username"]},
     password : {type : String, required:[true, "No Password"]},
     address : {type : String, required:[true, "No Address"]},
-    favorites: {type: Schema.Types.ObjectId, required : false},
+    favorites: {type: mongoose.Schema.Types.ObjectId, required : false},
     isAdmin : {type: Boolean, required : true},
-    cart: [{type: Schema.Types.ObjectId, required : false}]
+    cart: [{type: mongoose.Schema.Types.ObjectId, required : false}]
 });
 
   /** README **
@@ -44,4 +44,4 @@ const userSchema = new mongoose.Schema({
 /** README **
   Export the model as the main content of this module.
 **/
-module.exports = mongoose.model('transaction', transactionSchema);
+module.exports = mongoose.model('users', userSchema);

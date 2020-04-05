@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const databaseURL = 'mongodb://localhost:27017/cartdb';
+const databaseURL = 'mongodb://localhost:27017/transactiondb';
 
 //Fix the rest of this below
 
@@ -16,7 +16,7 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const cartSchema = new mongoose.Schema({
-    product: { type: Schema.Types.ObjectId, ref: 'product', required: true },
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true },
     quantity: { type: Number, required: [true, "No quantity"] },
     amount: { type: Number, required: [true, "No amount"] }
 });

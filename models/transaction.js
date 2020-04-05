@@ -16,7 +16,7 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const transactionSchema = new mongoose.Schema({
-    order: [{ type: Schema.Types.ObjectId, ref: 'product', required: true }],
+    order: [{ type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true }],
     dateOrdered: { type: Date, required: [true, "No date provided"] },
     status: { type: String, enum: ["Finished", "In Transit", ], required: true }
 });
