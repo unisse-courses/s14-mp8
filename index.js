@@ -76,6 +76,26 @@ app.get('/students', function(req, res) {
 //add menu item
 //app.post()
 
+app.post('/addProduct' , function(req,res){
+    const product = new productModel({
+        name: req.body.name,
+        description:req.body.description,
+        price:req.body.price
+    });
+    
+    product.save(function (err,result){
+        if (err) throw err;
+        res.send(result.toObject());
+    });
+});
+
+app.get('/products', function(req, res) {
+  // Retrieves all authors
+  productModel.find({}, function(err, products) {
+    res.send(products);
+  });
+});
+
 //-------------------------------------------------------------------------------------------
 app.get('/cart', function(req, res) {
     res.render('cart', {

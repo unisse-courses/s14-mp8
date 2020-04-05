@@ -16,11 +16,21 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const productSchema = new mongoose.Schema({
-    name: { type: String, required: [true, "No name provided"] },
-    description: { type: String, required: [true, "No description provided"] },
-    price: { type: Number, required: [true, "No price provided"] },
-    img: { type: String, lowercase: true, required: true }
-});
+    name: { type: String, required: [true, "No name provided"]},
+    //required: [true, "No name provided"] },
+    description: { type: String, required: [true, "No description provided"]},
+    //, required: [true, "No description provided"] },
+    price: { type: Number,required: [true, "No price provided"]},
+    //,required: [true, "No price provided"] }
+//    img: { type: String, lowercase: true
+//         }
+},
+          //, required: true },
+    {
+     toObject: { virtuals: true },
+    toJSON: { virtuals: true }
+}
+);
 
   /** README **
     Virtuals are other fields that do not persist in mongodb.
