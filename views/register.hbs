@@ -1,19 +1,30 @@
-<h1 class="headerTemp"><span id="menuHead">Registration</span></h1>
-<form class="register">
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname"><br><br>
+<form action="/register" method="post" class="registForm">
+  <div class="imgCont">
+    <img src="/img/logo2.png" alt="altLogo" class="altLogo">
+  </div>
 
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname"><br><br>
+  <div class="inputsCont">
+      
+    <label for="fname">First Name</label><br>
+    <input type="text" placeholder="Firstname" id="fname" name="fname" required> 
 
-    <label for="uname">Username:</label><br>
-    <input type="text" id="uname" name="uname"><br><br>
-        
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br><br>
+    <label for="lname">Last name</label><br>
+    <input type="text" placeholder="Last Name" id="lname" name="lname" required>
+      
+    <label for="Username">Username</label>
+    <input type="text" placeholder="Username" name="username" required>
 
-    <label for="address">Address:</label><br>
-    <input type="text" id="address" name="address">
-        
-    <button class="btn btn-primary" type="submit">Register</button>
+    <label for="password1"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password1" required>
+      
+    <label for="password2"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="password2" required>
+    
+    <button type="submit">Register</button>
+  </div>
+
+  <div class="btnCont" style="background-color:#f1f1f1">
+    <span class="signIn">Already have an account? <a href="login">Sign In</a></span>
+  </div>
+    
 </form>

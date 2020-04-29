@@ -16,27 +16,24 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const cartSchema = new mongoose.Schema({
-    product: { type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true },
-    quantity: { type: Number, required: [true, "No quantity"] },
-    amount: { type: Number, required: [true, "No amount"] }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
+    address : {type : String, required:[true, "No Address"]},
+    cartItem: [{
+        product: { type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true },
+        quantity: { type: Number, required: true},
+        amount: { type: Number, required: true}
+    }],
+    total: {type : Number, required: false},
+},{
+        toObject: {
+            virtuals: true,
+        },
+        toJSON: {
+            virtuals: true,
+        }
 });
 
-  /** README **
-    Virtuals are other fields that do not persist in mongodb.
-    By setting virtuals: true for toObject and toJSON, this makes all the
-    Document.toObject() function include any virtuals value available.
-    For our case, we don't have any.
-  **/
-  // }, {
-  //   toObject: {
-  //     virtuals: true,
-  //   },
-  //   toJSON: {
-  //     virtuals: true,
-  //   }
-  // }
-
-
+   
 /** README **
   Export the model as the main content of this module.
 **/

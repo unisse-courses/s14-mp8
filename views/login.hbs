@@ -1,4 +1,4 @@
-<form action="/loggedIn" method="get" class="loginForm">
+<form action="/login" method="get" class="loginForm">
   <div class="imgCont">
     <img src="/img/logo2.png" alt="altLogo" class="altLogo">
   </div>
@@ -11,13 +11,9 @@
     <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
   </div>
 
-  <div class="btnCont" style="background-color:#f1f1f1">
-    <button type="button" class="cancelBtn"><a href="home"><span id="cancelLog">Cancel</span></a></button>
-    <span class="password">Forgot <a href="#">password?</a></span>
+ <div class="btnCont" style="background-color:#f1f1f1">
+    <span class="signIn">Don't have an account? <a href="register">Register</a></span>
   </div>
 </form>

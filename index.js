@@ -62,7 +62,6 @@ app.get('/menu', function(req, res) {
         dbo.collection(colProduct).find({}).toArray(function(err, result) {
             if(err) throw err;
 
-            console.log("Read Successful!");
             client.close();
             res.render('menu', { 
                 title: 'Menu',
@@ -114,7 +113,7 @@ app.get('/login', function(req, res) {
     });
 });
 
-app.get('/loggedIn', function(req,res){
+app.get('/loginsuccess', function(req,res){
    res.render('home',{
         layout:'mainLoggedIn' 
    });
