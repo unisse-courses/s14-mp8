@@ -18,7 +18,7 @@ cd s14-mp8-master
 1. install the node modules
 
 ```
-npm install --save -y
+npm install
 ```
 
 2. run the app
