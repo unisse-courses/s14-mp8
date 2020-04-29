@@ -1,7 +1,7 @@
 <section id="blog" class="container">
     <h1 class="headerTemp"><span id="menuHead">Menu</span></h1>
     <div class="row">
-        {{#each product}}
+        {{#each products}}
             <div class="text-center col-lg-3">
                 <div class="card h-100 itemCont">
                     <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap"> <!--tea1 - Photo by Rosalind Chang on Unsplash-->
@@ -13,5 +13,12 @@
                 </div>  
             </div>
         {{/each}}
+        
+<!--
+    FOR ADDING ITEMS
+        <form method="post" action="/addProduct">
+            <button type="submit">Add Menu Item</button>
+        </form>
+-->
     </div>
 </section>
