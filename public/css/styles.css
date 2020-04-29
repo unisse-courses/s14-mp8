@@ -61,9 +61,9 @@ footer {
 /*Header Template*/
 .headerTemp{
     text-align: center;
-    background-color: #9fcfff;
     height: 80px;
     position: relative;
+    color: #28aae0;
     top: -20px;
 }
 
@@ -153,12 +153,12 @@ footer {
     width: 170px;
 }
 
-/*Log In*/
+/*Log In / Register Styles*/
 
-.loginForm {
+.loginForm, .registForm {
     width: 540px;
     border: 6px solid #f7f7f7;
-    margin-left: 23%;
+    margin-left: 30%;
     margin-top: 30px;
 }
 
@@ -259,6 +259,10 @@ span.password {
     width: 125px;
     position: relative;
     bottom: 13px;
+}
+
+#cartHead{
+    font-size: 35px;
 }
 
 

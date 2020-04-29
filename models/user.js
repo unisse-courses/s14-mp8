@@ -20,26 +20,17 @@ const userSchema = new mongoose.Schema({
     name:{type: String, required:[true, "Please provide a Name!"]},
     username : {type : String, lowercase: true, required:[true, "No Username"], unique: true},
     password : {type : String, required:[true, "No Password"]},
-    address : {type : String, required:[true, "No Address"]},
-    favorites: {type: mongoose.Schema.Types.ObjectId, required : false},
+    favorites: [{type: mongoose.Schema.Types.ObjectId, required : false}],
     isAdmin : {type: Boolean, required : true},
-    cart: [{type: mongoose.Schema.Types.ObjectId, required : false}]
+    transactions : [{type : mongoose.Schema.Types.ObjectId, required : false}],
+}, {
+     toObject: {
+       virtuals: true,
+     },
+     toJSON: {
+       virtuals: true,
+     }
 });
-
-  /** README **
-    Virtuals are other fields that do not persist in mongodb.
-    By setting virtuals: true for toObject and toJSON, this makes all the
-    Document.toObject() function include any virtuals value available.
-    For our case, we don't have any.
-  **/
-  // }, {
-  //   toObject: {
-  //     virtuals: true,
-  //   },
-  //   toJSON: {
-  //     virtuals: true,
-  //   }
-  // }
 
 
 /** README **
