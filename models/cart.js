@@ -9,7 +9,8 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const cartSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: false },
+    isGuest: {type: Boolean, required: true},
     cartItem: [{
         product: { type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true },
         quantity: { type: Number, required: true},

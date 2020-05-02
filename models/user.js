@@ -17,6 +17,13 @@ const userSchema = new mongoose.Schema({
     favorites: [{type: mongoose.Schema.Types.ObjectId, required : false}],
     isAdmin : {type: Boolean, required : true},
     cart: [{type: mongoose.Schema.Types.ObjectId, required : false}]
+},{
+     toObject: {
+       virtuals: true,
+     },
+     toJSON: {
+       virtuals: true,
+     }
 });
 
 module.exports = mongoose.model('users', userSchema);
