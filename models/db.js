@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const Product = require('./models/product');
-const Cart = require('./models/cart');
-const User = require('./models/user');
-const Transaction = require('./models/transaction');
+const Product = require('./product.js');
+const Cart = require('./cart.js');
+const User = require('./user.js');
+const Transaction = require('./transaction.js');
 
 const url ='mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
 

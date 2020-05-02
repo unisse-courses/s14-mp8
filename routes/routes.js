@@ -4,12 +4,12 @@ const controller = require('../controllers/controller.js');
 const app = express();
 
 
+app.get('/favicon.ico', controller.getFavicon);
 
 //GETS
 app.get('/',controller.getIndex);
 app.get('/home', controller.getIndex);
 app.get('/logout', controller.getIndex);
-
 app.get('/admin', controller.getAdmin);
 
 

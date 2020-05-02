@@ -9,13 +9,6 @@ const db = require('./models/db.js');
 const port = 3000;
 const app = express();
 
-app.engine('hbs', exphbs({
-    extname: 'hbs',
-    defaultView: 'main',
-    layoutsDir: path.join(__dirname, '/views/layouts'),
-    partialsDir: path.join(__dirname, '/views/partials'),
-}));
-
 app.set('view engine', 'hbs');
 
 // Configuration for handling API endpoint data
