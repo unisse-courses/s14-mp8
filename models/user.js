@@ -1,12 +1,5 @@
 const mongoose = require('mongoose');
 
-const databaseURL = 'mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false };
-
-mongoose.connect(databaseURL, options);
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
@@ -26,4 +19,4 @@ const userSchema = new mongoose.Schema({
      }
 });
 
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('Users', userSchema);
