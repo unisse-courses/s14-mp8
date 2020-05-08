@@ -1,23 +1,30 @@
 {
-  "name": "webapp",
+  "name": "s14-mp8",
   "version": "1.0.0",
+  "description": "This project is a simulation of a food ordering app that delivers and offers pick up as an option. The main product advertised in this app is Milk Tea. It contains fuctions such as 'add to cart', 'place order', and the likes of a regular food ordering app, with certain limitations.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon ./bin/www"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unisse-courses/s14-mp8.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unisse-courses/s14-mp8/issues"
+  },
+  "homepage": "https://github.com/unisse-courses/s14-mp8#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^4.0.4",
     "hbs": "^4.1.1",
-    "mongodb": "^3.5.5",
-    "mongoose": "^5.9.7",
-    "validator": "^13.0.0"
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "handlebars": "^4.7.6"
-  },
-  "description": ""
+    "nodemon": "^2.0.3"
+  }
 }
