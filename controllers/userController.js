@@ -5,7 +5,5 @@ exports.verifyUser = function (req,res){
 };
 
 exports.createUser = function(req, res){
-    var user = {
-        
-    },
+    var user = {};
 };

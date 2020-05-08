@@ -4,6 +4,11 @@ const exphbs = require('express-handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 
+const cartRouter = require('./routes/cartRoutes');
+const productRouter = require('./routes/productRoutes');
+const transactionRouter = require('./routes/transactionRoutes');
+const userRouter = require('./routes/userRoutes');
+
 const port = 3000;
 const app = express();
 
@@ -31,3 +36,5 @@ app.get('/', function(req,res){
         title : 'Welcome to Milk Tea Labs!',
     });
 });
+
+app.use('/menu', productRouter);
