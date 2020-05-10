@@ -32,3 +32,9 @@ const cartModel = mongoose.model('Cart', cartSchema);
 exports.addToCart = function(){
     
 }
+
+
+
+
+
+module.exports = mongoose;

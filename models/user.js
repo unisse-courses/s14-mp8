@@ -11,13 +11,15 @@ mongoose.connect(databaseURL, options);
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
+    _id : mongoose.Schema.Types.ObjectId,
     name:{type: String, required:[true, "Please provide a Name!"]},
     username : {type : String, lowercase: true, required:[true, "No Username"], unique: true},
     password : {type : String, required:[true, "No Password"]},
     address : {type : String, required:[true, "No Address"]},
-    favorites: [{type: mongoose.Schema.Types.ObjectId, required : false}],
+    favorites: [{type: mongoose.Schema.Types.ObjectId, ref:"Product", required : false}],
     isAdmin : {type: Boolean, required : true},
-    cart: {type: mongoose.Schema.Types.ObjectId, required : false}
+    cart: {type: mongoose.Schema.Types.ObjectId, required : false},
+    transactions : [{type : mongoose.Schema.Types.ObjectId}]
 },{
      toObject: {
        virtuals: true,
