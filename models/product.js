@@ -28,3 +28,11 @@ exports.getAllProducts = function(sort, next){
         next(menuObjects);
     });
 }
+
+exports.addProduct = function(obj,next){
+    const product = new productModel(obj);
+    
+    product.save(function(err,product){
+        next(err,product);
+    });
+};

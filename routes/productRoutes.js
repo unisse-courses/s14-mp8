@@ -10,6 +10,8 @@ router.get('/', productController.getMenu);
 
 //POSTS
 
+router.post('/addItem', productController.addItem);
+
 
 
 module.exports = router;
