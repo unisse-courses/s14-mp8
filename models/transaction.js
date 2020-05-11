@@ -1,15 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require('./connection');
 
-const databaseURL ='mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false 
-};
-
-mongoose.connect(databaseURL, options);
+mongoose.set('useCreateIndex', true);
 
 const transactionSchema = new mongoose.Schema({
+    _id : mongoose.Schema.Types.ObjectId,
     order: [{ type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true }],
     dateOrdered: { type: Date, required: [true, "No date provided"] },
     status: { type: String, enum: ["Finished", "In Transit", ], required: true }

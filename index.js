@@ -1,13 +1,21 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const handlebars = require('handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
+const mongoose = require('./models/connection');
 
+const session = require('express-session');
+const flash = require('connect-flash');
+const MongoStore = require('connect-mongo')(session);
+
+//Routes imports
 const cartRouter = require('./routes/cartRoutes');
 const productRouter = require('./routes/productRoutes');
 const transactionRouter = require('./routes/transactionRoutes');
 const userRouter = require('./routes/userRoutes');
+const indexRouter = require('./routes/index');
 
 const port = 3000;
 const app = express();
@@ -31,10 +39,24 @@ app.listen(port, function() {
     console.log('App listening at port ' + port);
 });
 
-app.get('/', function(req,res){
-    res.render('home.hbs', {
-        title : 'Welcome to Milk Tea Labs!',
-    });
+app.use(session({
+  secret: 'somegibberishsecret',
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+}));
+
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
 });
+
+app.use('/', userRouter);
+app.use('/', indexRouter);
+app.use('/cart', cartRouter)
 
 app.use('/menu', productRouter);

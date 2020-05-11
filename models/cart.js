@@ -1,14 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('./connection');
 
-const databaseURL ='mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false 
-};
-
-mongoose.connect(databaseURL, options);
 const cartSchema = new mongoose.Schema({
+    _id : mongoose.Schema.Types.ObjectId,
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: false },
     isGuest: {type: Boolean, required: true},
     cartItem: [{

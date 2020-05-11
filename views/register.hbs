@@ -1,3 +1,4 @@
+{{> messages}}
 <form action="/register" method="post" class="registForm">
   <div class="imgCont">
     <img src="/img/logo2.png" alt="altLogo" class="altLogo">
@@ -5,13 +6,10 @@
 
   <div class="inputsCont">
       
-    <label for="fname">First Name</label><br>
-    <input type="text" placeholder="Firstname" id="fname" name="fname" required> 
-
-    <label for="lname">Last name</label><br>
-    <input type="text" placeholder="Last Name" id="lname" name="lname" required>
+    <label for="name">Name</label><br>
+    <input type="text" placeholder="Name" name="name" required> 
       
-    <label for="Username">Username</label>
+    <label for="username">Username</label>
     <input type="text" placeholder="Username" name="username" required>
 
     <label for="password1"><b>Password</b></label>
@@ -20,14 +18,13 @@
     <label for="password2"><b>Confirm Password</b></label>
     <input type="password" placeholder="Confirm Password" name="password2" required>
       
-    <label for="Address">Address</label>
+    <label for="address">Address</label>
     <input type="text" placeholder="Address" name="address" required>
     
     <button type="submit">Register</button>
   </div>
 
-  <div class="btnCont" style="background-color:#f1f1f1">
-    <span class="signIn">Already have an account? <a href="login">Sign In</a></span>
+  <div id="alrdAcct">
+    <span class="signIn">Already have an account?<a href="login"> Sign In</a></span>
   </div>
-    
 </form>

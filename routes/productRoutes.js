@@ -2,9 +2,13 @@ const router = require('express').Router();
 
 const productController = require('../controllers/productController');
 
+const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 
 
-router.get('/', productController.getMenu);
+//GETS
+router.get('/', isPublic, productController.getMenu);
+
+//POSTS
 
 
 

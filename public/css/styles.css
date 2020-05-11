@@ -15,10 +15,11 @@ body, html{
 }
 
 /* footer */
-footer {
+
+#foot{
     display: block;
     text-align: center;
-    background-color: #dbd9d9;
+    background-color: rgb(40, 170, 224);
 }
 
 /* navigation */
@@ -61,7 +62,6 @@ footer {
 /*Header Template*/
 .headerTemp{
     text-align: center;
-    background-color: #9fcfff;
     height: 80px;
     position: relative;
     top: -20px;
@@ -155,11 +155,12 @@ footer {
 
 /*Log In*/
 
-.loginForm {
-    width: 540px;
+.loginForm { 
+    width: 500px;
     border: 6px solid #f7f7f7;
-    margin-left: 23%;
-    margin-top: 30px;
+    margin-left: 26%;
+    margin-top: 50px;
+    height: 70vh;
 }
 
 input[type=text], input[type=password] {
@@ -225,18 +226,14 @@ button:hover {
 }
 
 
-.btnCont {
-  padding: 16px;
-}
-
 span.password {
   float: right;
   padding-top: 16px;
 }
 
 .inputsCont{
-    width: 500px;
-    margin-left: 15px;
+    width: 450px;
+    margin-left: 20px;
 }
 
 /*Menu Items*/
@@ -276,4 +273,26 @@ span.password {
     margin-left: auto;
     margin-right: auto;
     width: 50em;
+}
+
+.registForm{
+    height: auto;
+    width: 500px;
+    position: relative;
+    left: 30%;
+}
+
+#frgtPass{
+    position: relative;
+    right: 20px;
+}
+
+.btnCont{
+    height: 65px;
+    background-color:#f1f1f1;
+}
+
+#alrdAcct{
+    position: relative;
+    left: 50%
 }

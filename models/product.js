@@ -1,16 +1,7 @@
-const mongoose = require('mongoose');
-
-const databaseURL ='mongodb+srv://Broqzzz:admin@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
-
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false 
-};
-
-mongoose.connect(databaseURL, options);
+const mongoose = require('./connection');
 
 const productSchema = new mongoose.Schema({
+    _id : mongoose.Schema.Types.ObjectId,
     name: { type: String, required: [true, "No name provided"]},
     description: { type: String, required: [true, "No description provided"]},
     price: { type: Number,required: [true, "No price provided"]},

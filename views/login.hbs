@@ -1,4 +1,5 @@
-<form action="/loggedIn" method="get" class="loginForm">
+{{> messages}}
+<form action="/login" method="POST" class="loginForm">
   <div class="imgCont">
     <img src="/img/logo2.png" alt="altLogo" class="altLogo">
   </div>
@@ -11,13 +12,9 @@
     <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
   </div>
 
-  <div class="btnCont" style="background-color:#f1f1f1">
-    <button type="button" class="cancelBtn"><a href="home"><span id="cancelLog">Cancel</span></a></button>
-    <span class="password">Forgot <a href="#">password?</a></span>
+  <div class="btnCont">
+    <span class="password" id='frgtPass'><a href="#">Forgot password?</a></span>
   </div>
 </form>

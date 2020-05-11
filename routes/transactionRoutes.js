@@ -2,4 +2,12 @@ const router = require('express').Router();
 
 const transactionController = require('../controllers/transactionController');
 
-router.post('/history/:id', transactionController.getTransaction);
+const { isPublic, isPrivate } = require('../middlewares/checkAuth');
+
+//GET
+
+
+//POSTS
+
+
+module.exports = router;
