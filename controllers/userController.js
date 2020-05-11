@@ -24,13 +24,11 @@ exports.registerUser = function(req,res){
                        name,
                        username,
                        password : hashed,
-                       address,
-                       favorites :[],
-                       cart : '',
-                       transactions :[],
+                       address
                    };
                    userModel.create(newUser, function(err, user){
                        if(err){
+                           console.log(err);
                            req.flash('error_msg', 'Could not create user. Please Try Again!');
                            res.redirect('/register');
                        }else{

@@ -2,8 +2,11 @@ const router = require('express').Router();
 
 const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 
-router.get('/', isPublic , (req, res) => {
-  res.render('home', { Title: 'Milk Tea Labs'});
+router.get('/', (req, res) => {
+  res.render('home', { 
+      Title: 'Home',
+      user: req.session.name
+    });
 });
 
 module.exports = router;

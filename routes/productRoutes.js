@@ -6,7 +6,7 @@ const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 
 
 //GETS
-router.get('/', isPublic, productController.getMenu);
+router.get('/', productController.getMenu);
 
 //POSTS
 

@@ -14,8 +14,11 @@
     <title>Milk Tea Labs | {{ Title }}</title>
 </head>
 <body>
-    
-    {{> nav}}
+    {{#if user}}
+        {{> login}}
+    {{else}}
+        {{> nav}}
+    {{/if}}
  
     <div class="container">
         {{{ body }}}

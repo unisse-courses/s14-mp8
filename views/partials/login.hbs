@@ -8,11 +8,13 @@
     <ul class="nav navbar-nav">
         <li id="Home"><a href="/">Home</a></li>
         <li id="Menu"><a href="/menu">Menu</a></li>
+        <li id="Cart"><a href="/cart">Cart</a></li>
+        <li id="Favorites"><a href="/favorites">Favorites</a></li>
     </ul>
       
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="/register"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/profile"><span class="glyphicon glyphicon-user"></span>Hello! {{ user }}</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>

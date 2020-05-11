@@ -1,7 +1,6 @@
 const mongoose = require('./connection');
 
 const productSchema = new mongoose.Schema({
-    _id : mongoose.Schema.Types.ObjectId,
     name: { type: String, required: [true, "No name provided"]},
     description: { type: String, required: [true, "No description provided"]},
     price: { type: Number,required: [true, "No price provided"]},
@@ -15,7 +14,7 @@ const productSchema = new mongoose.Schema({
      }
 });
 
-const productModel = mongoose.model('Product', productSchema);
+const productModel = mongoose.model('products', productSchema);
 
 exports.getAllProducts = function(sort, next){
     productModel.find({}).sort(sort).exec(function(err,result){

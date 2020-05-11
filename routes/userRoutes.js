@@ -9,14 +9,14 @@ const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 // GET login to display login page
 router.get('/login',isPublic,(req, res) => {
   res.render('login', {
-    pageTitle: 'Login',
+    Title: 'Login',
   });
 });
 
 // GET register to display registration page
 router.get('/register',isPublic, (req, res) => {
   res.render('register', {
-    pageTitle: 'Registration',
+    Title: 'Registration',
   });
 });
 
