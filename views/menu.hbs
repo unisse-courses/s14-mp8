@@ -3,13 +3,21 @@
     <h1 class="headerTemp"><span id="menuHead">Menu</span></h1>
     <div class="row">
         {{#each products}}
-            <div class="text-center col-lg-3">
+            <div class="text-center col-lg-4">
                 <div class="card h-100 itemCont">
                     <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
                         <p class="card-text">Php {{this.price}}.00</p>
-                        <button type="button" id="addToCart" class="btn btn-primary">Add to Cart<i class="fas fa-plus"></i></button>
+                         {{#if user}}
+                            <form action='/menu' method="get">
+                                <button type="submit" id="addToCart" class="btn btn-primary">Add to Cart<i class="fas fa-plus"></i></button>
+                            </form>
+                        {{else}}
+                            <form action='/register' method="get">
+                                <button type="submit" id="addToCart" class="btn btn-primary">Order Now!<i class="fas fa-plus"></i></button>
+                            </form>
+                        {{/if}}
                     </div>
                 </div>  
             </div>

@@ -58,6 +58,5 @@ app.use((req, res, next) => {
 app.use('/', userRouter);
 app.use('/', indexRouter);
 app.use('/cart', cartRouter);
-
-app.use('/', productRouter);
 app.use('/menu', productRouter);
+app.use('/history', transactionRouter);

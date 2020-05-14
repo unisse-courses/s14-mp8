@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema({
     username : {type : String, lowercase: true, required:[true, "No Username"], unique: true},
     password : {type : String, required:[true, "No Password"]},
     address : {type : String, required:[true, "No Address"]},
-    favorites: [{type: mongoose.Schema.Types.ObjectId, ref:"products", required : false}],
     cart: {type: mongoose.Schema.Types.ObjectId, required : false},
     transactions : [{type : mongoose.Schema.Types.ObjectId}],
 },{

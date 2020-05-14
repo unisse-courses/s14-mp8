@@ -1,8 +1,8 @@
 const transactionModel = require('../models/transaction');
 
-exports.getTransaction = function(req,res){
-    transactionModel.getOneTransaction(req.body.transactionID,function(transaction){
-       res.render('history', {transaction}); 
-    });
-}
-    
+//exports.getTransactions = function(req,res){
+//    transactionModel.getOneTransaction( ***** ,function(transaction){
+//       res.render('history', {transaction}); 
+//    });
+//}
+//    
