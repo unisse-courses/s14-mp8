@@ -106,3 +106,20 @@ exports.logoutUser = (req, res) => {
     });
   }
 };
+
+exports.editUser = (req, res, next) => {
+  let { user } = req;
+
+  // You pick only allowed fields from submitted body
+  const allowedFields = { username: req.body.username, address: req.body.address };
+
+  // Override the current user data with new one
+  user = Object.assign(user, allowedFields);
+
+  user.save((err, savedUser) => {
+      if (err) {
+          return next(err);
+      }
+      res.json(savedUser.toJSON());
+  });
+};

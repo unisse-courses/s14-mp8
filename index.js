@@ -60,3 +60,5 @@ app.use('/', indexRouter);
 app.use('/cart', cartRouter);
 app.use('/menu', productRouter);
 app.use('/history', transactionRouter);
+//-----------------------------------------
+app.use('/profile', userRouter);
