@@ -111,7 +111,7 @@ exports.editUser = (req, res, next) => {
   let { user } = req;
 
   // You pick only allowed fields from submitted body
-  const allowedFields = { username: req.body.username, address: req.body.address };
+  const allowedFields = { address: req.body.address };
 
   // Override the current user data with new one
   user = Object.assign(user, allowedFields);

@@ -47,7 +47,7 @@ router.param('userId', function (req, res, next, id) {
       }
   });
 });
-router.post('/profile', isPublic, userController.editUser);
+router.post('/profile', userController.editUser);
 //-------------------------------------------------------------------
 
 // logout
