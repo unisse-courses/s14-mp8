@@ -107,19 +107,45 @@ exports.logoutUser = (req, res) => {
   }
 };
 
+//----------------------------------------------------------
 exports.editUser = (req, res, next) => {
-  let { user } = req;
+  //let { user } = req;
 
   // You pick only allowed fields from submitted body
-  const allowedFields = { address: req.body.address };
+  //const allowedFields = { address: req.body.address };
 
   // Override the current user data with new one
-  user = Object.assign(user, allowedFields);
+  //user = Object.assign(user, allowedFields);
 
-  user.save((err, savedUser) => {
-      if (err) {
-          return next(err);
-      }
-      res.json(savedUser.toJSON());
-  });
+  //user.save((err, savedUser) => {
+  //   if (err) {
+  //        return next(err);
+  //    }
+  //    res.json(savedUser.toJSON());
+
+  userModel.findOneAndUpdate(
+    { url: req.body.url },
+    {
+      address: req.body.address,
+    },
+    { new: true }
+  )
+    .then((result) => {
+      console.log(result);
+    })
+
+    .then(() =>{
+      res.status(200).json({
+        message: "Address Successfully Updated",
+      })
+    })
+
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+
+  //});
 };

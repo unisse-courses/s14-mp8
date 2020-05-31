@@ -21,8 +21,9 @@ router.get('/register',isPublic, (req, res) => {
 });
 
 //GET editProfile page to display--------------------------------------
-router.get('/profile', isPublic, (req, res) => {
+router.get('/profile', isPrivate, (req, res) => {
   res.render('profile', {
+    user : req.session.name,
     Title: 'Edit Profile',
   });
 });
@@ -47,7 +48,7 @@ router.param('userId', function (req, res, next, id) {
       }
   });
 });
-router.post('/profile', userController.editUser);
+router.post('/profile', isPrivate, userController.editUser);
 //-------------------------------------------------------------------
 
 // logout
