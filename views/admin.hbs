@@ -14,7 +14,10 @@
         <input type="button" name="submit" id="submit" value="Upload"> <br> <br>  --}}
 
         <br> <br>
-        <button class="btn btn-primary" type="submit">Add Item</button> 
+        {{!-- <button class="btn btn-primary" type="submit">Add Item</button>  --}}
+        <form action='/admin/addItem' method="POST">
+            <button class="btn btn-primary" type='submit'>ADD ITEM</button>
+        </form>
 </form>
 
 {{!-- <script type="text/javascript">

@@ -125,9 +125,7 @@ exports.editUser = (req, res, next) => {
 
   userModel.findOneAndUpdate(
     { url: req.body.url },
-    {
-      address: req.body.address,
-    },
+    {address: req.body.address},
     { new: true }
   )
     .then((result) => {
