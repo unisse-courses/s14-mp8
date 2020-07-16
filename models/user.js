@@ -43,11 +43,10 @@ exports.getById = function(id, next) {
 };
 
 // Updating the information of user---------------------------------------------------
-exports.getAndUpdate = function(filter, next) {
-  const options = { new: true };
+exports.getAndUpdate = function(filter, updates, options, next) {
+  //const options = { new: true };
 
   userModel.findOneAndUpdate(filter, updates, options, function(err, updateRes) {
-    next(err, user);
-    if (err) throw err;
+    next(err, updateRes);
   });
 };

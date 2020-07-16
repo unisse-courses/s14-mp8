@@ -109,41 +109,63 @@ exports.logoutUser = (req, res) => {
 
 //----------------------------------------------------------
 exports.editUser = (req, res, next) => {
-  //let { user } = req;
+  
+  console.log(req.body);
 
-  // You pick only allowed fields from submitted body
-  //const allowedFields = { address: req.body.address };
+  // get user objects to validate password
+  // if match get one and update 
+  // else redirect to profile page with error message for wrong password
 
-  // Override the current user data with new one
-  //user = Object.assign(user, allowedFields);
+  userModel.getAndUpdate(
+    { _id: req.session.user },
+    { address: req.body.address },
+    { new: true },
+    (err, result) => {
+      if (err) {
+        req.flash('error_msg', 'Something happened! Please try again.');
+        res.redirect('/login');
+      } else {
+        
+          if (user) {
+            bycrypt.compare(password, user.password, (err, result) => {
+              if (result) {
+                req.session.user = user._id;
+                req.session.address = user.address;
+                res.status(200).json({
+                  message: "Address Successfully Updated",
+                })
 
-  //user.save((err, savedUser) => {
-  //   if (err) {
-  //        return next(err);
-  //    }
-  //    res.json(savedUser.toJSON());
+                res.redirect('/profile');
+              } else {
+                req.flash('error_msg', 'Passwords do not match');
+                res.redirect('/profile');
+              }
+            });
+          }
 
-  userModel.findOneAndUpdate(
-    { url: req.body.url },
-    {address: req.body.address},
-    { new: true }
-  )
-    .then((result) => {
+      }
+      
       console.log(result);
-    })
+      //if successful redirect to profile but send suc message
+      // res.status(200).json({
+      //    message: "Address Successfully Updated",
+      // })
+    }
+  )
+    // .then((result) => {
+    //   console.log(result);
+    // })
 
-    .then(() =>{
-      res.status(200).json({
-        message: "Address Successfully Updated",
-      })
-    })
+    // .then(() =>{
+    //   res.status(200).json({
+    //     message: "Address Successfully Updated",
+    //   })
+    // })
 
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
-
-  //});
+    // .catch((err) => {
+    //   console.log(err);
+    //   res.status(500).json({
+    //     error: err,
+    //   });
+    // });
 };
