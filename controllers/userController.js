@@ -154,8 +154,9 @@ exports.editUser = (req, res, next) => {
       // }
       console.log(result);
       //if successful redirect to profile but send success message
-      res.status(200).json({
-        message: "Address Successfully Updated",
-      })
+      // res.status(200).json({
+      //   message: "Address Successfully Updated",
+      // })
+      res.redirect('/profile');
     }
 )};
