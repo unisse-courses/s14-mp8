@@ -5,14 +5,34 @@
 <!--CSS -->
 <link rel="stylesheet" href="css/profile.css">
 <!-- JS -->
-{{!-- <script src="userScripts.js"></script> --}}
-
+<script src="userScripts.js"></script>
 
 <div class="profile">
     <div class="container">
         <h1>Profile</h1>
 
         <div class="userInfo">
+
+            <div class="form">
+                
+                {{#each user}}
+
+                <div class="label">Name</div>
+                <div class="info">{{this.name}}</div>
+                
+                <br>
+
+                <div class="label">Username</div>
+                <div class="info">{{this.username}}</div>
+
+                <br>
+
+                <div class="label">Address</div>
+                <div class="info">{{this.address}}</div>
+
+                <br>
+                {{/each}}
+            </div>
 
         </div>
 
@@ -21,7 +41,7 @@
         
         <form action="/profile" method="POST">
             <div class="col-md-9 personal-info">
-                <h3>Change Address</h3>
+                <h5>Change Address</h5>
                 
                 <div class="form-group">
                     <label class="col-md-3 control-label">New Address:</label>
