@@ -1,0 +1,20 @@
+
+.form {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.label {
+    float: left;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.info {
+    float: right;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
