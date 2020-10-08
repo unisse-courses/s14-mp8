@@ -125,7 +125,6 @@ exports.editUser = (req, res, next) => {
         req.flash('error_msg', 'Something happened! Please try again.');
         res.redirect('/login');
       } else {
-        
           if (user) {
             bycrypt.compare(password, user.password, (err, result) => {
               if (result) {
@@ -150,22 +149,8 @@ exports.editUser = (req, res, next) => {
       // res.status(200).json({
       //    message: "Address Successfully Updated",
       // })
+    },
+    function(flag){
+
     }
-  )
-    // .then((result) => {
-    //   console.log(result);
-    // })
-
-    // .then(() =>{
-    //   res.status(200).json({
-    //     message: "Address Successfully Updated",
-    //   })
-    // })
-
-    // .catch((err) => {
-    //   console.log(err);
-    //   res.status(500).json({
-    //     error: err,
-    //   });
-    // });
-};
+)};
