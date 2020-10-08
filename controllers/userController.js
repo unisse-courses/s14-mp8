@@ -125,7 +125,7 @@ exports.editUser = (req, res, next) => {
         req.flash('error_msg', 'Something happened! Please try again.');
         res.redirect('/login');
       } else {
-        
+        try {
           if (user) {
             bycrypt.compare(password, user.password, (err, result) => {
               if (result) {
@@ -142,9 +142,12 @@ exports.editUser = (req, res, next) => {
               }
             });
           }
+        } catch (e) {
+          console.log(e);
+        }
+          
 
       }
-      
       console.log(result);
       //if successful redirect to profile but send suc message
       // res.status(200).json({
