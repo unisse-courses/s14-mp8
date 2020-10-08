@@ -127,37 +127,35 @@ exports.editUser = (req, res, next) => {
     { address: req.body.address },
     { new: true },
     (err, result) => {
-      if (err) {
-        req.flash('error_msg', 'Something happened! Please try again.');
-        res.redirect('/login');
-      } else {
-        try {
-          if (user) {
-            // bycrypt.compare(password, user.password, (err, result) => {
-            //   if (result) {
-            //     req.session.user = user._id;
-            //     req.session.address = user.address;
-            //     res.status(200).json({
-            //       message: "Address Successfully Updated",
-            //     })
+      // if (err) {
+      //   req.flash('error_msg', 'Something happened! Please try again.');
+      //   res.redirect('/login');
+      // } else {
+      //   try {
+      //     if (user) {
+      //       // bycrypt.compare(password, user.password, (err, result) => {
+      //       //   if (result) {
+      //       //     req.session.user = user._id;
+      //       //     req.session.address = user.address;
+      //       //     res.status(200).json({
+      //       //       message: "Address Successfully Updated",
+      //       //     })
 
-            //     res.redirect('/profile');
-            //   } else {
-            //     req.flash('error_msg', 'Passwords do not match');
-            //     res.redirect('/profile');
-            //   }
-            // });
-          }
-        } catch (e) {
-          console.log(e);
-        }
-          
-
-      }
+      //       //     res.redirect('/profile');
+      //       //   } else {
+      //       //     req.flash('error_msg', 'Passwords do not match');
+      //       //     res.redirect('/profile');
+      //       //   }
+      //       // });
+      //     }
+      //   } catch (e) {
+      //     console.log(e);
+      //   }
+      // }
       console.log(result);
-      //if successful redirect to profile but send suc message
-      // res.status(200).json({
-      //    message: "Address Successfully Updated",
-      // })
+      //if successful redirect to profile but send success message
+      res.status(200).json({
+        message: "Address Successfully Updated",
+      })
     }
 )};
