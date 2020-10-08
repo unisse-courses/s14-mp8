@@ -154,21 +154,4 @@ exports.editUser = (req, res, next) => {
       //    message: "Address Successfully Updated",
       // })
     }
-  )
-    // .then((result) => {
-    //   console.log(result);
-    // })
-
-    // .then(() =>{
-    //   res.status(200).json({
-    //     message: "Address Successfully Updated",
-    //   })
-    // })
-
-    // .catch((err) => {
-    //   console.log(err);
-    //   res.status(500).json({
-    //     error: err,
-    //   });
-    // });
-};
+)};
