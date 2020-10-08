@@ -111,7 +111,8 @@ exports.logoutUser = (req, res) => {
 exports.editUser = (req, res, next) => {
   
   console.log(req.body);
-
+  
+  console.log("chickenrun");
   // get user objects to validate password
   // if match get one and update 
   // else redirect to profile page with error message for wrong password
@@ -125,7 +126,7 @@ exports.editUser = (req, res, next) => {
         req.flash('error_msg', 'Something happened! Please try again.');
         res.redirect('/login');
       } else {
-        
+        try {
           if (user) {
             bycrypt.compare(password, user.password, (err, result) => {
               if (result) {
@@ -142,6 +143,10 @@ exports.editUser = (req, res, next) => {
               }
             });
           }
+        } catch (e) {
+          console.log(e);
+        }
+        
 
       }
       
