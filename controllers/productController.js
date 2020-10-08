@@ -18,6 +18,7 @@ exports.addItem = function(req,res){
         img : '/img/tea2.jpg'
     }
     
+
     productModel.addProduct(newProduct, function(err,product){
         if(err){
             console.log(err);
@@ -29,4 +30,10 @@ exports.addItem = function(req,res){
             res.redirect('/menu');
         }
     });
+}
+
+exports.addtoCart = function(req,res){
+    const toCART = {
+        
+    }
 }

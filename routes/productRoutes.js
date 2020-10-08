@@ -10,6 +10,7 @@ router.get('/', productController.getMenu);
 
 //POSTS
 
+router.post('/addtoCart', productController.addtoCart);
 //router.post('/addItem', productController.addItem);
 router.post('/admin', productController.addItem);
 
