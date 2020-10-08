@@ -157,6 +157,9 @@ exports.editUser = (req, res, next) => {
       // res.status(200).json({
       //   message: "Address Successfully Updated",
       // })
+
+      req.flash('successfully updated address');
       res.redirect('/profile');
+
     }
 )};
