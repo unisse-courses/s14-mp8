@@ -109,12 +109,18 @@ exports.logoutUser = (req, res) => {
 
 //----------------------------------------------------------
 exports.editUser = (req, res, next) => {
-  
-  console.log(req.body);
 
+  const {username, password, address} = req.body;
+  console.log(req.body);
+  
   // get user objects to validate password
   // if match get one and update 
   // else redirect to profile page with error message for wrong password
+  const user = {
+    username : username,
+    password : password,
+    address : address,
+  };
 
   userModel.getAndUpdate(
     { _id: req.session.user },
@@ -127,20 +133,20 @@ exports.editUser = (req, res, next) => {
       } else {
         try {
           if (user) {
-            bycrypt.compare(password, user.password, (err, result) => {
-              if (result) {
-                req.session.user = user._id;
-                req.session.address = user.address;
-                res.status(200).json({
-                  message: "Address Successfully Updated",
-                })
+            // bycrypt.compare(password, user.password, (err, result) => {
+            //   if (result) {
+            //     req.session.user = user._id;
+            //     req.session.address = user.address;
+            //     res.status(200).json({
+            //       message: "Address Successfully Updated",
+            //     })
 
-                res.redirect('/profile');
-              } else {
-                req.flash('error_msg', 'Passwords do not match');
-                res.redirect('/profile');
-              }
-            });
+            //     res.redirect('/profile');
+            //   } else {
+            //     req.flash('error_msg', 'Passwords do not match');
+            //     res.redirect('/profile');
+            //   }
+            // });
           }
         } catch (e) {
           console.log(e);
