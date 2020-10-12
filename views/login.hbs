@@ -1,4 +1,14 @@
+{{#section 'header'}}
+    <title>Home</title>
+<!--
+     CSS 
+    <link rel="stylesheet" href="/css/home.css">
+    <script src='time.js'></script>
+-->
+{{/section}}
+
 {{> messages}}
+
 <form action="/login" method="POST" class="loginForm">
   <div class="imgCont">
     <img src="/img/logo2.png" alt="altLogo" class="altLogo">
@@ -15,6 +25,6 @@
   </div>
 
   <div class="btnCont">
-    <span class="password" id='frgtPass'><a href="#">Forgot password?</a></span>
+    <span class="password" id='frgtPass'>Don't have an account?<a href="/register"> Sign Up</a></span>
   </div>
 </form>

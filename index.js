@@ -5,10 +5,13 @@ const handlebars = require('handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
+const moment = require('moment');
 
 const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
+
+
 
 //Routes imports
 const cartRouter = require('./routes/cartRoutes');
@@ -25,6 +28,13 @@ app.engine( 'hbs', exphbs({
   defaultView: 'main',
   layoutsDir: path.join(__dirname, '/views/layouts'),
   partialsDir: path.join(__dirname, '/views/partials'),
+  helpers: {
+       section: function(name, options){
+            if(!this._sections) this._sections = {};
+            this._sections[name] = options.fn(this);
+            return null;
+        },
+  },
 }));
 
 app.set('view engine', 'hbs');
@@ -33,14 +43,15 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/scripts'));
 
 app.listen(port, function() {
     console.log('App listening at port ' + port);
 });
 
 app.use(session({
-  secret: 'somegibberishsecret',
+  secret: 'Cookiez',
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: true,
@@ -55,10 +66,5 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', userRouter);
 app.use('/', indexRouter);
-app.use('/cart', cartRouter);
 app.use('/menu', productRouter);
-app.use('/history', transactionRouter);
-//-----------------------------------------
-//app.use('/profile', userRouter);
