@@ -34,22 +34,6 @@ router.post('/register',isPublic, registerValidation, userController.registerUse
 router.post('/login',isPublic, loginValidation, userController.loginUser);
 
 //-------------------------------------------------------------------
-//https://stackoverflow.com/questions/53830114/how-to-update-user-details-according-to-this-model-and-controller-in-node-js-exp
-router.param('userId', function (req, res, next, id) {
-  User.findOne(id, function (err, user) {
-      if (err) {
-          next(err);
-      } else if (user) {
-          // When it finds user information, bind that to request object, which will be used in the other middlewares.
-          req.user = user;
-          next();
-      } else {
-          next(new Error('failed to load user'));
-      }
-  });
-});
-router.post('/profile', isPrivate, userController.editUser);
-//-------------------------------------------------------------------
 
 // logout
 router.get('/logout',isPrivate, userController.logoutUser);
