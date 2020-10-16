@@ -1,0 +1,20 @@
+#logo{
+    height: 100px;
+    width: 300px;
+}
+
+.navbar-inverse{
+    height: 130px;
+}
+
+.navbar-right{
+    position: relative;
+    top: 40px;
+    margin-right: 10px;
+}
+
+.navbar-nav{
+    position: relative;
+    top: 40px;
+    margin-left: 30px;
+}

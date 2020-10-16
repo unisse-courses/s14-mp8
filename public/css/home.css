@@ -1,0 +1,18 @@
+#homeLogo{
+    display: block;
+    float: right;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 130px;
+}
+
+body{
+    font-size: 20px;
+}
+
+#btnBrew{
+    height: 100px;
+    width: 495px;
+    font-size: 40px;
+}

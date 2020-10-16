@@ -1,17 +1,13 @@
 {{#section 'header'}}
-    <title>Home</title>
-<!--
-     CSS 
-    <link rel="stylesheet" href="/css/home.css">
-    <script src='time.js'></script>
--->
+    <title>Milk Tea Labs | Log-In</title>
+    <link rel="stylesheet" href="/css/LogReg.css">
 {{/section}}
 
 {{> messages}}
 
-<form action="/login" method="POST" class="loginForm">
+<form action="/login" method="POST" class="logRegForm">
   <div class="imgCont">
-    <img src="/img/logo2.png" alt="altLogo" class="altLogo">
+    <img src="/img/logo3.png" class="LoginReg">
   </div>
 
   <div class="inputsCont">
@@ -21,10 +17,10 @@
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
 
-    <button type="submit">Login</button>
+    <button type="submit" id="btnLogin" class="btn btn-primary btnLogReg"><span class="fas fa-sign-in-alt" style='font-size:20px'></span>&nbsp;&nbsp;Login</button>
   </div>
 
-  <div class="btnCont">
+  <div class="logregSwitch">
     <span class="password" id='frgtPass'>Don't have an account?<a href="/register"> Sign Up</a></span>
   </div>
 </form>

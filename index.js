@@ -68,3 +68,5 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/menu', productRouter);
+app.use('/login', userRouter);
+app.use('/register', userRouter);

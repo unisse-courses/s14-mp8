@@ -1,5 +1,5 @@
 {{#section 'header'}}
-    <title>Home</title>
+    <title>Milk Tea Labs | Menu</title>
 <!--
      CSS 
     <link rel="stylesheet" href="/css/home.css">
@@ -18,29 +18,16 @@
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
                         <p class="card-text">Php {{this.price}}.00</p>
-                         {{#if user}}
-                            <form action='/menu/addtoCart' method="get">
-                                <button type="submit" id="addToCart" class="btn btn-primary">Add to Cart<i class="fas fa-plus"></i></button>
-                            </form>
+                        {{#if user}}
+                                <button id="addToCart" class="btn btn-primary">Add to Cart</button>
                         {{else}}
                             <form action='/register' method="get">
-                                <button type="submit" id="addToCart" class="btn btn-primary">Order Now!<i class="fas fa-plus"></i></button>
+                                <button type="submit" id="addToCart" class="btn btn-primary">Order Now</button>
                             </form>
                         {{/if}}
                     </div>
                 </div>  
             </div>
         {{/each}}
-       
-<!--
-        TEMPORARY ADD ITEM
-        <form action='/menu/addItem' method="POST">
-            <button type='submit'>ADD ITEM</button>
-        </form> 
--->
     </div>
-
-    
 </section>
-
-<script src = "cartAdd.js"></script>
