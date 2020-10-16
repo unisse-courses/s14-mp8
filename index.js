@@ -5,7 +5,7 @@ const handlebars = require('handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
-const moment = require('moment');
+//const moment = require('moment');
 
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -68,3 +68,5 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/menu', productRouter);
+
+app.use('/profile', userRouter);
