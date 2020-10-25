@@ -42,8 +42,8 @@
     </div>
     <div class="cart-action">
         <h3>
-          Subtotal {{cartItems.reduce((a, c) => a + c.qty, 0)}} item
-          Php {{cartItems.reduce((a,c) => a + c.price * c.qty, 0)}}
+          {{!-- Subtotal {{cartItems.reduce((a, c) => a + c.qty, 0)}} item --}}
+          {{!-- Php {{cartItems.reduce((a,c) => a + c.price * c.qty, 0)}} --}}
         </h3>
         <button onClick={{checkoutHandler}} class="button primary full-width">
           Proceed to Checkout

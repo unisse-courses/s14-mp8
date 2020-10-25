@@ -20,5 +20,10 @@ router.get('/register', (req, res) => {
     });
 });
 
+router.get('/cart', (req, res) => {
+  res.render('cart', { 
+      user: req.session.name
+    });
+});
 
 module.exports = router;
