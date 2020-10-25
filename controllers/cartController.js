@@ -1,4 +1,4 @@
-const cartModel = require('../models/cart');
+//const cartModel = require('../models/cart');
 
 exports.addToCart = function(req,res){
     var cartItem = {
