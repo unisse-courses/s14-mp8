@@ -26,4 +26,10 @@ router.get('/cart', (req, res) => {
     });
 });
 
+router.get('/checkout', (req, res) => {
+  res.render('checkout', { 
+      user: req.session.name
+    });
+});
+
 module.exports = router;
