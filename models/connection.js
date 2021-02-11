@@ -3,7 +3,7 @@
 
 const mongoose = require('mongoose');
 
-const databaseURL ='mongodb+srv://Broqzzz:H1DjJw7tqVaQqBy6@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
+const databaseURL ='mongodb+srv://Broqzzz:7h0cPMatG7T1do9o@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
 
 const options = { 
   useNewUrlParser: true,

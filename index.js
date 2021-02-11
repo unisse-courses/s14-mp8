@@ -5,13 +5,13 @@ const handlebars = require('handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
-//const moment = require('moment');
+
 
 const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 
-
+const moment = require('moment');
 
 //Routes imports
 const cartRouter = require('./routes/cartRoutes');
@@ -55,7 +55,7 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 1 }
 }));
 
 app.use(flash());
@@ -67,7 +67,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/', userRouter);
 app.use('/menu', productRouter);
 app.use('/login', userRouter);
-app.use('/register', userRouter);
+
 //app.use('/cart', cartRouter);

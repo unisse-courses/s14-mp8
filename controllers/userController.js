@@ -10,7 +10,7 @@ exports.registerUser = function(req,res){
   const errors = validationResult(req);
     
     if(errors.isEmpty()){
-        const {name, username, password1, address} = req.body;
+        const {name, username, password1} = req.body;
         
         userModel.getOne({username : username}, function(err, result){
            if(result){
@@ -24,8 +24,11 @@ exports.registerUser = function(req,res){
                        name,
                        username,
                        password : hashed,
-                       address
+                       address : "",
                    };
+                   
+                   console.log(newUser);
+                   
                    userModel.create(newUser, function(err, user){
                        if(err){
                            console.log(err);
@@ -86,7 +89,7 @@ exports.loginUser = function(req,res){
         });
         } else {
           // No user found
-          req.flash('error_msg', 'Unregistered Email. Please register.');
+          req.flash('error_msg', 'Unregistered Username. Please register.');
           res.redirect('/register');
         }
       }});
