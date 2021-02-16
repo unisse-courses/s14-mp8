@@ -135,6 +135,23 @@ exports.logoutUser = (req, res) => {
   }
 };
 
+exports.updateUser = function(req,res) {
+
+  userModel.findByIdAndUpdate({_id:req.params.id},
+    {
+      $set: {
+        username: req.body.username,
+        address: req.body.address,
+        password: req.body.password
+      }
+    }, (err) => {
+
+      if(err)
+        res.send(err);
+    });
+};
+
+
 // //----------------------------------------------------------
 // exports.editUser = (req, res, next) => {
 

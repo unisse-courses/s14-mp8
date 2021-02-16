@@ -39,3 +39,10 @@ exports.getById = function(id, next) {
   });
 };
 
+
+exports.findByIdAndUpdate = function(id, next) {
+  userModel.findById(id, function(err, user) {
+    next(err, user);
+  });
+};
+

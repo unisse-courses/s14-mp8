@@ -1,0 +1,49 @@
+body{
+  background-image: url(https://th.bing.com/th/id/OIP.5UCmJ2QWoaDWcDWOU_2MbQHaHa?pid=Api&rs=1);
+}
+
+.LoginReg{
+  width: 500px;
+  position: relative;
+  left: 25px;
+  top: 20px;
+}
+
+.EditProfile{
+  display: block;
+  position: relative;
+  top: 40px;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: black;
+  border-style: groove;
+  border-radius: 50px 0px 50px 0px;
+  color: black;
+  padding: 0px 0px 40px 0px;
+  background-color: white;
+}
+
+.logregSwitch{
+  float: right;
+  position: relative;
+  bottom: 20px;
+  right: 50px;
+}
+
+.inputsCont{
+  position: relative;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+}
+
+label{
+  color: black;
+}
+
+.btnLogReg{
+  position: relative;
+  top: 10px;
+}
