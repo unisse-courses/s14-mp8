@@ -7,9 +7,12 @@ const { registerValidation, loginValidation } = require('../validators.js');
 const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 
 
-router.get('/logout', userController.logoutUser);
+router.get('/login', userController.getLoginPage); // get the login page
+router.get('/register', userController.getRegisterPage); // get the register page
 
-router.post('/register', registerValidation, userController.registerUser);
-router.post('/login', loginValidation, userController.loginUser);
+router.post('/register', registerValidation, userController.registerUser); //register new users
+router.post('/login', loginValidation, userController.loginUser); //login users
+
+router.get('/logout', userController.logoutUser);// logout users
 
 module.exports = router;

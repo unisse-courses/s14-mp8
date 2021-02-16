@@ -8,17 +8,6 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-  res.render('login', { 
-      user: req.session.name
-    });
-});
-
-router.get('/register', (req, res) => {
-  res.render('register', { 
-      user: req.session.name
-    });
-});
 
 router.get('/cart', (req, res) => {
   res.render('cart', { 

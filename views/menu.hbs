@@ -1,18 +1,15 @@
 {{#section 'header'}}
     <title>Milk Tea Labs | Menu</title>
-<!--
-     CSS 
-    <link rel="stylesheet" href="/css/home.css">
-    <script src='time.js'></script>
--->
+    <link rel="stylesheet" href="/css/menu.css">
+<!--    <script src='time.js'></script>-->
 {{/section}}
 
 {{> messages}}
 <section id="blog" class="container">
-    <h1 class="headerTemp"><span id="menuHead">Menu</span></h1>
+    <h1 class="headerTemp"><i class="fas fa-flask"  style="font-size:100px;"></i><span id="menuHead">Brew Selections</span></h1>
     <div class="row">
         {{#each products}}
-            <div class="text-center col-lg-4">
+            <div class="text-center col-lg-4 menuCard">
                 <div class="card h-100 itemCont">
                     <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
                     <div class="card-body">

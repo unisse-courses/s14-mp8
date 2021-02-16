@@ -4,6 +4,30 @@ const userModel = require('../models/user');
 
 const {validationResult} = require('express-validator');
 
+exports.getLoginPage = function(req,res){
+    var name = req.session.name;
+    
+    if(name != undefined){
+       req.flash('error_msg', 'Already logged in');
+       res.redirect('/');
+    }
+    else{
+         res.render('login');
+    }
+}
+
+exports.getRegisterPage = function(req,res){
+    var name = req.session.name;
+    
+    if(name != undefined){
+       req.flash('error_msg', 'Already logged in');
+       res.redirect('/');
+    }
+    else{
+         res.render('register');
+    }
+}
+
 
 
 exports.registerUser = function(req,res){
@@ -79,7 +103,7 @@ exports.loginUser = function(req,res){
             req.session.name = user.name;
 
             console.log(req.session);
-
+              req.flash('success_msg', "Logged In");
             res.redirect('/');
           } else {
             // passwords don't match
@@ -104,8 +128,9 @@ exports.loginUser = function(req,res){
 exports.logoutUser = (req, res) => {
   if (req.session) {
     req.session.destroy(() => {
-      res.clearCookie('connect.sid');
-      res.redirect('/login');
+        res.clearCookie('connect.sid');
+        res.redirect('/login');
+        console.log(req.session);
     });
   }
 };
