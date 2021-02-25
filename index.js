@@ -70,5 +70,6 @@ app.use('/', indexRouter);
 app.use('/', userRouter);
 app.use('/menu', productRouter);
 app.use('/login', userRouter);
-
+app.use('/profile', userRouter);
+app.use('/admin', productRouter);
 //app.use('/cart', cartRouter);

@@ -95,22 +95,28 @@ exports.loginUser = function(req,res){
           // User found!
 
           // Check password with hashed value in the database
-        bcrypt.compare(password, user.password, (err, result) => {
-          // passwords match (result == true)
-          if (result) {
-            // Update session object once matched!
-            req.session.user = user._id;
-            req.session.name = user.name;
+          bcrypt.compare(password, user.password, (err, result) => {
+            // passwords match (result == true)
+            if (result) {
+              // Update session object once matched!
+              req.session.user = user._id;
+              req.session.name = user.name;
 
-            console.log(req.session);
+              console.log(req.session);
               req.flash('success_msg', "Logged In");
-            res.redirect('/');
-          } else {
-            // passwords don't match
-            req.flash('error_msg', 'Incorrect password. Please try again.');
-            res.redirect('/login');
-          }
-        });
+
+              if (username == "admin-acc"){
+                res.render('admin', {layouts: "admin"});
+              } else {
+                res.redirect('/');
+              }
+
+            } else {
+              // passwords don't match
+              req.flash('error_msg', 'Incorrect password. Please try again.');
+              res.redirect('/login');
+            }
+          });
         } else {
           // No user found
           req.flash('error_msg', 'Unregistered Username. Please register.');

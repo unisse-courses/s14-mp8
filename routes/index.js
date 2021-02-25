@@ -27,4 +27,10 @@ router.get('/profile', (req, res) => {
   });
 })
 
+router.get('/admin', (req, res) => {
+  res.render('admin', {
+    user: req.session.name
+  });
+})
+
 module.exports = router;

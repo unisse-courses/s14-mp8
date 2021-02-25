@@ -7,7 +7,7 @@
 <!--Need current values as holder-->
 
 {{> messages}}
-<form action="/profile" method="POST" class="EditProfile">
+<form action="/update" method="POST" class="EditProfile">
   <div class="imgCont">
     <img src="/img/logo3.png" class="LoginReg">
   </div>
@@ -19,8 +19,8 @@
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
 
-    <label for="password"><b>Address</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Enter Address" name="address" required>
 
     <button type="submit" id="btnLogin" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
   </div>
