@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
     name:{type: String, required:[true, "Please provide a Name!"]},
     username : {type : String, lowercase: true, required:[true, "No Username"], unique: true},
     password : {type : String, required:[true, "No Password"]},
-    address: {type: String, required:[false]}
+    address: {type: String, required:[true, "Please provide your address!"]}
 },{
      toObject: {
        virtuals: true,
