@@ -9,22 +9,16 @@
     <h1 class="headerTemp"><i class="fas fa-flask"  style="font-size:100px;"></i><span id="menuHead">Brew Selections</span></h1>
     <div class="row">
         {{#each products}}
-            <div class="text-center col-lg-4 menuCard">
+            <div class="text-center col-lg-4 menuCard" id="{{this._id}}">
                 <div class="card h-100 itemCont">
                     <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
                         <p class="card-text">Php {{this.price}}.00</p>
-                        {{#if user}}
-                                <button id="addToCart" class="btn btn-primary">Add to Cart</button>
-                        {{else}}
-                            <form action='/register' method="get">
-                                <button type="submit" id="addToCart" class="btn btn-primary">Order Now</button>
-                            </form>
-                        {{/if}}
+                        <button id="addTosCart" class="btn btn-primary">Add to Cart</button>
                     </div>
                 </div>  
-            </div>
+            </div>  
         {{/each}}
     </div>
 </section>
