@@ -4,8 +4,6 @@
     <script src="profile.js"></script>
 {{/section}}
 
-<!--Need current values as holder-->
-
 {{> messages}}
 <form action="/update" method="POST" class="EditProfile">
   <div class="imgCont">
@@ -14,13 +12,13 @@
     
   <div class="inputsCont">
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <input type="text" placeholder="Enter Username" name="username" value="{{username}}" required readonly>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" value="{{password}}" required>
 
     <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address" required>
+    <input type="text" placeholder="Enter Address" name="address" value="{{address}}" required>
 
     <button type="submit" id="btnLogin" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
   </div>

@@ -34,7 +34,7 @@ exports.registerUser = function(req,res){
   const errors = validationResult(req);
     
     if(errors.isEmpty()){
-        const {name, username, password1} = req.body;
+        const {name, username, address, password1} = req.body;
         
         userModel.getOne({username : username}, function(err, result){
            if(result){
@@ -48,7 +48,7 @@ exports.registerUser = function(req,res){
                        name,
                        username,
                        password : hashed,
-                       address : "",
+                       address
                    };
                    
                    console.log(newUser);
@@ -139,6 +139,20 @@ exports.logoutUser = (req, res) => {
         console.log(req.session);
     });
   }
+};
+
+exports.getUser = function(req,res){
+    userModel.getOne({ _id:req.session.user}, (err, user) => {
+        if(user){
+            const info = {
+                username : user.username,
+                password : user.password,
+                address : user.address,
+                user: req.session.name
+            }
+            res.render('profile', info);
+        }
+    });
 };
 
 exports.updateUser = function(req,res) {

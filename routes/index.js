@@ -21,11 +21,7 @@ router.get('/checkout', (req, res) => {
     });
 });
 
-router.get('/profile', (req, res) => {
-  res.render('profile', {
-    user: req.session.name
-  });
-})
+
 
 router.get('/admin', (req, res) => {
   res.render('admin', {
