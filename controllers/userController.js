@@ -104,12 +104,7 @@ exports.loginUser = function(req,res){
 
               console.log(req.session);
               req.flash('success_msg', "Logged In");
-
-//              if (username == "admin-acc"){
-//                res.render('admin', {layouts: "admin"});
-//              } else {
-//                res.redirect('/');
-//              }
+              res.redirect('/');
 
             } else {
               // passwords don't match

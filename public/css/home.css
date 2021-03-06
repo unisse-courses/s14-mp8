@@ -9,6 +9,7 @@
 
 body{
     font-size: 20px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,164,198,1) 61%, rgba(0,64,78,1) 100%);
 }
 
 #btnBrew{

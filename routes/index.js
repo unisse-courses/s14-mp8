@@ -25,7 +25,8 @@ router.get('/checkout', (req, res) => {
 
 router.get('/admin', (req, res) => {
   res.render('admin', {
-    user: req.session.name
+    user: req.session.name,
+    layout : 'admin'
   });
 })
 

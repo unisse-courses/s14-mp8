@@ -1,5 +1,7 @@
+
 body{
-  background-image: url(https://th.bing.com/th/id/OIP.5UCmJ2QWoaDWcDWOU_2MbQHaHa?pid=Api&rs=1);
+    background-image: url(https://th.bing.com/th/id/OIP.5UCmJ2QWoaDWcDWOU_2MbQHaHa?pid=Api&rs=1);
+    background-repeat: repeat;
 }
 
 .LoginReg{
@@ -22,6 +24,7 @@ body{
   color: black;
   padding: 0px 0px 40px 0px;
   background-color: white;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,164,198,1) 61%, rgba(0,64,78,1) 100%);
 }
 
 .logregSwitch{
