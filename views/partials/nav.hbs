@@ -1,3 +1,8 @@
+{{#section 'header'}}
+    <link rel="stylesheet" href="/css/lognav.css">
+    <!--<script src='time.js'></script>-->
+{{/section}}
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -7,8 +12,10 @@
     </div>
       
     <ul class="nav navbar-nav">
-        <li id="Home"><a href="/"><i class="fas fa-home" style='font-size:24px'></i> Home</a></li>
-        <li id="Menu"><a href="/menu"><i class="fas fa-flask"></i> Brews</a></li>
+        <li id="Home"><a href="/"><i class="fas fa-home" style='font-size:24px'></i>&nbsp;&nbsp;Home</a></li>
+        <li id="Menu"><a href="/menu"><i class="fas fa-flask"></i>&nbsp;&nbsp;Brews</a></li>
+        <li id="Cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a><div id="atcNum"><span id="atcNumIn"><b>0</b></span></div></li>
+        
     </ul>      
       
       

@@ -1,3 +1,8 @@
+{{#section 'header'}}
+    <link rel="stylesheet" href="/css/lognav.css">
+    <!--<script src='time.js'></script>-->
+{{/section}}
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -9,17 +14,25 @@
     <ul class="nav navbar-nav">
         <li id="Home"><a href="/"><i class="fas fa-home" style='font-size:24px'></i>&nbsp;&nbsp;Home</a></li>
         <li id="Menu"><a href="/menu"><i class="fas fa-flask"></i>&nbsp;&nbsp;Brews</a></li>
-        <li id="Cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a></li>
-<!--
-        <li id="History"><a href="/history">Transactions</a></li>
-        <li id="History"><a href="/profile">Edit</a></li>
--->
+        <li id="Cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a><div id="atcNum"><span id="atcNumIn"><b>0</b></span></div></li>
     </ul>
+     
+    
       
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/profile"><span class="glyphicon glyphicon-user"}></span>&nbsp;Hello! {{ user }}</a></li>
-        <!--<li><a href="/profile"><i class="fas fa-address-card" style='font-size:20px'></i> &nbsp;Profile</a></li>-->
-        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
+      
+<!--
+    <div class="dropdown" style="float:right;">
+        <button class="dropbtn"><span class="glyphicon glyphicon-user"}></span>&nbsp;Hello! {{ user }}</button>	glyphicon glyphicon-triangle-bottom
+        <div class="dropdown-content">
+            <a href="/profile"><span class="glyphicon glyphicon-user"}></span>&nbsp;Profile Page</a>
+            <a href="/logout"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Logout</a>
+        </div>
+    </div>
+-->
+      
   </div>
 </nav>

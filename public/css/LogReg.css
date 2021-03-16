@@ -1,6 +1,12 @@
+/*
 body{
-/*    background-image: url(https://th.bing.com/th/id/OIP.5UCmJ2QWoaDWcDWOU_2MbQHaHa?pid=Api&rs=1);*/
-        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,164,198,1) 61%, rgba(0,64,78,1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,164,198,1) 61%, rgba(0,64,78,1) 100%);
+}
+*/
+
+body{
+    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") no-repeat;
+    background-size: cover;
 }
 
 .LoginReg{
@@ -22,7 +28,7 @@ body{
     border-radius: 50px 0px 50px 0px;
     color: black;
     padding: 0px 0px 40px 0px;
-    background-color: white;
+    background: linear-gradient(90deg, rgb(251 251 251) 0%, rgb(177 214 172) 70%, rgb(255 255 255) 100%);
 }
 
 .logregSwitch{
