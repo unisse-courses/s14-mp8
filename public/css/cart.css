@@ -1,208 +1,95 @@
-/* Cart */
-
-.cart {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1rem;
-  align-items: flex-start;
-}
-
-.cart-list {
-  flex: 3 1 60rem;
-}
-
-.cart-action {
-  flex: 1 1 20rem;
-  background-color: #d3cfcf;
-  border-radius: .5rem;
-  padding: 1rem;
-}
-
-.cart-list-container {
-  list-style-type: none;
-  padding: 1rem;
-}
-
-.cart-list-container li{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-  border-bottom: .1rem #808080 solid;
-}
-
-.cart-list-container li img {
-  max-width: 10rem;
-  max-height: 10rem;
-}
-
-.cart-list-container li:first-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.cart-image {
-  flex: 1 1;
-}
-
-.cart-name {
-  flex: 8 1;
-}
-
-.cart-price{
-  flex: 1 1;
-  font-size: 2.5rem;
-  text-align: right;
-}
-
-
-/* DIANNE */
-
-html {
-/*    font-size: 62.5%;  16px * 62.5 = 10px = 1rem */
-    box-sizing: border-box;
-}
-
 body {
-/*    font: 1.6rem Helvetica;*/
+    font: 25px Helvetica;
     height: 100vh;
     margin: 0;
-    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") no-repeat;
+    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") repeat;
     background-size: cover;
 }
 
-button {
-/*    font-size: 2rem;*/
+h2{
     text-align: center;
 }
 
-.full-width {
-    width: 100%;
-}
 
-#root {
-    height: 100%;
-}
+/*CART BORDERS*/
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 5rem 1fr 5rem;
-    height: 100%;
+.containerCart{
+    background: #c5e5f4;
+    color: black;
+    height: auto;
+    width: 1000px;
     position: relative;
-    right: -130px;
-}
-/* Cart */
-
-.cart {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1rem;
-    align-items: flex-start;
+    left: 150px;
 }
 
-.cart-list {
-    flex: 2 1 60rem;
+
+/*ROW*/
+
+.roe{
+    height: 100px
 }
 
-.cart-action {
-    flex: 1 1 25rem;
-    background-color: #dfe6e6;
-    border-radius: .5rem;
-    padding: 1rem;
+
+/*ROW ITEMS*/
+
+.delButton{
+    
+}
+
+.cartPicCont{
+}
+
+.cartPic{
+    width: auto;
+    height: 70px;
     position: relative;
-    bottom: -300px;
-    right: 310px;
+    left: 20px;
 }
 
-.qty {
+.itemName{
     position: relative;
-    right: -32px; 
-}
-
-.total {
-    position: relative;
-    right: 150px;
-}
-
-.cart-list-container {
-    list-style-type: none;
-    padding: 1rem;
-}
-
-.cart-list-container li{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1rem;
-    border-bottom: .1rem #808080 solid;
-}
-
-.cart-list-container li img {
-    max-width: 10rem;
-    max-height: 10rem;
-    position: relative;
-    top: -8px;
-}
-
-.cart-list-container li:first-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.cart-image {
-    flex: 1 1;
-}
-
-.cart-name {
-    flex: 8 1;
-    position: relative;
-    bottom: -6px;
-}
-
-.cart-price{
-    flex: 2 1;
-    font-size: 2.5rem;
-    text-align: right;
-    position: relative;
-    top: -29px;
-    right: 126px;
-}
-
-.button .primary{
-    padding: 2rem;
-    border: .1rem #1954d4 solid;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    display: flex;
-    text-align-last: center;
-    align-items: center;
-}
-
-.delete-button {
-    padding: 1rem;
-    border: .1rem #1945d4 solid;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    display: flex;
-    text-align-last: center;
-    align-items: center;
-    line-height: 0.01rem;
-    position: relative;
-    right: -600px;
-    top: -19px;
-}
-
-#quantity {
-    width: 3.5rem;
-    position: relative;
-    left: 300px;
     top: 15px;
 }
 
-button:hover {
-    border: .1rem #f07707 solid;
-    background-color: rgb(255, 166, 0);
+.itemDesc{
+    color: dimgrey;
+    position: relative;
+    top: 20px;
+    left: -80px;
+    font-size: 15px;
 }
+
+
+#milkNum{
+    width: 40px;
+    height: 35px;
+    border: black;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    position: relative;
+    left: 50px;
+    top: 10px;
+    background: #e7f0e2;
+}
+
+.cartPrice{
+    position: relative;
+    top: 10px;
+    left: 100px;
+}
+
+.cartSubT{
+    
+}
+
+.closePic{
+    width: auto;
+    height: 15px;
+    position: relative;
+    top: 8px;
+    left: 130px;
+}
+
+
+

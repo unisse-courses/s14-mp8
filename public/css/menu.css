@@ -10,8 +10,9 @@
 }
 
 .itemImg{
-    height: 200px;
+    height: 150px;
     margin-top: 25px;
+    width: auto;
 }
 
 .row{
@@ -38,6 +39,14 @@
 }
 
 body{
-    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") no-repeat;
+    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") repeat;
     background-size: cover;
+}
+
+.menuCard{
+    
+}
+
+.cartCont{
+    margin-bottom: 200px;
 }

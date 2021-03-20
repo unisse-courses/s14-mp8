@@ -3,46 +3,71 @@
     <link rel="stylesheet" href="/css/cart.css">
 {{/section}}
 
-<div class="grid-container">
-  <main class="main">
-    <div class="cart">
-        <div class="cart-list">
-          <ul class="cart-list-container">
-            <li>
-              <h3>Cart</h3>
-              <h4 class="qty">Quantity</h4>
-              <h4 class="total">Price</h4>
-            </li>
-            {{!--  If cart is empty, show promt? --}}
-            <li>
-                <img class="cart-img" src="img/tea2.jpg" alt="picture"/>
-                <div class="cart-name">
-                  <div class="cart-name">
-                    Milk Tea Pearl
-                  </div>
-                  <div>
-                    {{!-- OnChange quantity Function --}}
-                    <input type="number" id="quantity" name="quantity" min="1">
-                    {{!--Delete item form cart--}}
-                    <button type="button" class="delete-button" onClick="removeFromCart()">
-                      &#128465;
-                    </button>
-                    <br>
-                  </div>
-                </div>
-                <div class="cart-price">
-                  Php 180
-                </div>
-            </li>
-          </ul>
-        </div>
-        <div class="cart-action">
-          {{!-- calculation should be done here --}}
-          <h3>
-            Subtotal: Php 180.00
-          </h3>
-          <button onClick="checkout()" class="button primary full-width">Checkout</button>
-        </div>
+
+ 
+<div class="cartCont">
+    <div style="color:white; text-align:center;">
+        <h1><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</h1>
     </div>
-  </main>
+    <div class="containerCart table-responsive">
+          <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Order</th>
+                        <th><span style="position:relative; left:50px;">Qty.</span></th>
+                        <th></th>
+                        <th><span style="position:relative;left:100px;">Price</span></th>
+                        <th><span style="position:relative;left:100px;">Subtotal</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class='roe'>
+                        <td class='cartPicCont'><img src="/img/tea4.png" class='cartPic'></td>
+                        <td><span class='itemName'>Alien Tonic</span></td>
+                        <td><input type="text" id="milkNum" value='1' readonly></td>
+                        <td class='delButton'><img src="/img/close.png" class='closePic'></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                    </tr>
+                    
+                    <tr class='roe'>
+                        <td class='cartPicCont'><img src="/img/tea4.png" class='cartPic'></td>
+                        <td><span class='itemName'>Cupid Tonic</span></td>
+                        <td><input type="text" id="milkNum" value='1' readonly></td>
+                        <td class='delButton'><img src="/img/close.png" class='closePic'></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                    </tr>
+                    
+                    <tr class='roe'>
+                        <td class='cartPicCont'><img src="/img/tea4.png" class='cartPic'></td>
+                        <td><span class='itemName'>Boba Crush</span></td>
+                        <td><input type="text" id="milkNum" value='1' readonly></td>
+                        <td class='delButton'><img src="/img/close.png" class='closePic'></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                    </tr>
+                    
+                    <tr class='roe'>
+                        <td class='cartPicCont'><img src="/img/tea4.png" class='cartPic'></td>
+                        <td><span class='itemName'>Bee Hive</span></td>
+                        <td><input type="text" id="milkNum" value='1' readonly></td>
+                        <td class='delButton'><img src="/img/close.png" class='closePic'></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                        <td><span class='cartPrice'>150.00</span></td>
+                    </tr>
+                    
+                </tbody>
+          </table>
+          <div class="total" style="float:right;">
+                    <span>Subtotal :</span>
+                    <span>450.00</span><br>
+                    <span>Delivery:</span>
+                    <span>49.00</span><br>
+                    <span>Grand Total:</span>
+                    <span>499.00</span><br>
+                    <button type="button" class="btn btn-danger" id="btnCheck">Checkout</button>
+          </div>
+    </div>
 </div>
