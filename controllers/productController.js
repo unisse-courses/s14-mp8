@@ -31,9 +31,3 @@ exports.addItem = function(req,res){
         }
     });
 }
-
-exports.addtoCart = function(req,res){
-    const toCART = {
-        
-    }
-}

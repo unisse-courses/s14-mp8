@@ -1,10 +1,10 @@
+const cartModel = require('../models/cart');
+const productModel = require('../models/product');
+
 exports.getCart = function(req,res){
+    const userID = req.session.user;
     
-    
-}
-
-
-exports.checkout = function(req,res){
-        
-    
+    res.render('cart', { 
+      user: req.session.name
+    });
 }

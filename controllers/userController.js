@@ -52,6 +52,8 @@ exports.registerUser = function(req,res){
                        address
                    };
                    
+                   console.log(newUser);
+                   
                    userModel.create(newUser, function(err, user){
                        if(err){
                            console.log(err);

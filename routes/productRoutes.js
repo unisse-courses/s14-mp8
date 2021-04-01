@@ -7,9 +7,7 @@ const productController = require('../controllers/productController');
 router.get('/', productController.getMenu);
 
 //POSTS
-router.post('/addtoCart', productController.addtoCart);
-//router.post('/addItem', productController.addItem);
-router.post('/admin', productController.addItem);
+router.post('/admin/addItem', productController.addItem);
 
 
 module.exports = router;
