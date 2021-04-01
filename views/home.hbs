@@ -28,10 +28,20 @@
             <p> We consider our staff our Scien”tea”ist, as they are constantly working on formulas 
                 and experimenting with new drinks.</p>
         </section>
+        {{#if user}}
+            <a href="/menu">
+                <button class="btn btn-primary" id="btnBrew"><i class="fas fa-flask" style="font-size: 50px;"></i>&nbsp;&nbsp;Brew Selections!</button>
+            </a>
         
-        <a href="/menu">
-            <button class="btn btn-primary" id="btnBrew"><i class="fas fa-flask" style="font-size: 50px;"></i>&nbsp;&nbsp;Start Brewing!</button>
-        </a>
+        {{else}}
+            <a href="/menu">
+                <button class="btn btn-primary" id="btnBrew"><i class="fas fa-flask" style="font-size: 50px;"></i>&nbsp;&nbsp;Brew Selections!</button>
+            </a>
+
+            <a href="/register">
+                <button class="btn btn-primary" id="btnBrew"><i class="fas fa-flask" style="font-size: 50px;"></i>&nbsp;&nbsp;Start Brewing!</button>
+            </a>
+        {{/if}}
         
     </div>
 </div>

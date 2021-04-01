@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 
 const userModel = require('../models/user');
+const cartModel = require('../models/cart');
 
 const {validationResult} = require('express-validator');
 
@@ -51,19 +52,36 @@ exports.registerUser = function(req,res){
                        address
                    };
                    
-                   console.log(newUser);
-                   
                    userModel.create(newUser, function(err, user){
                        if(err){
                            console.log(err);
                            req.flash('error_msg', 'Could not create user. Please Try Again!');
                            res.redirect('/register');
                        }else{
-                           req.flash("success_msg", 'You are now registered!');
-                           res.redirect('/login');
+                           userModel.getOne({username : username},(err,user1)=>{
+                               const cart = {
+                                   _id : user1._id,
+                                   products : [],
+                                   totalPrice : 0
+                               }
+                               
+                               cartModel.create(cart, function(err,cart){
+                                   if(err){
+                                       console.log(err);
+                                       req.flash('error_msg', 'Could not create cart. Please Try Again!');
+                                       res.redirect('/register');
+                                   }
+                                   else{
+                                       req.flash("success_msg", 'You are now registered!');
+                                       res.redirect('/login')
+                                   }
+                               });
+                           });
                        }
                    })
                })
+               
+               
            }
         });
     }else{

@@ -25,7 +25,7 @@
     background: linear-gradient(90deg, rgb(251 251 251) 0%, rgb(177 214 172) 70%, rgb(255 255 255) 100%);
 }
 
-#addToCart{
+.addToCart{
     position: relative;
     bottom: 10px;
     color: white;
@@ -49,4 +49,12 @@ body{
 
 .cartCont{
     margin-bottom: 200px;
+}
+
+.orderNow{
+    height: 70px;
+    width: 840px;
+    color: white;
+    background: #36b320;
+    font-size: 40px;
 }

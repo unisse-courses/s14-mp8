@@ -1,24 +1,41 @@
 {{#section 'header'}}
     <title>Milk Tea Labs | Menu</title>
     <link rel="stylesheet" href="/css/menu.css">
-<!--    <script src='time.js'></script>-->
+    <script src='/scripts/menu.js'></script>
 {{/section}}
 
 {{> messages}}
 <section id="blog" class="container">
-    <h1 class="headerTemp"><i class="fas fa-flask"  style="font-size:100px;"></i><span id="menuHead">Brew Selections</span></h1>
+    <h1 class="headerTemp"><i class="fas fa-flask"  style="font-size:75px;"></i><span id="menuHead">Brew Selections</span></h1>
     <div class="row">
-        {{#each products}}
-            <div class="text-center col-lg-4 menuCard" id="{{this._id}}">
-                <div class="card h-100 itemCont">
-                    <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{this.name}}</h5>
-                        <p class="card-text" id="price"><b>Php {{this.price}}.00</b></p>
-                        <button id="addToCart" class="btn btn-primary">Add to Cart</button>
-                    </div>
+        {{#if user}}
+            {{#each products}}
+                <div class="text-center col-lg-4 menuCard" id="{{this._id}}">
+                    <div class="card h-100 itemCont">
+                        <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                            <p class="card-text" id="price"><b>Php {{this.price}}.00</b></p>
+                            <button id="{{this._id}}" class="btn btn-primary addToCart">Add to Cart</button>
+                        </div>
+                    </div>  
                 </div>  
-            </div>  
-        {{/each}}
+            {{/each}}
+        {{else}}
+            {{#each products}}
+                <div class="text-center col-lg-4 menuCard" id="{{this._id}}">
+                    <div class="card h-100 itemCont">
+                        <img class="card-img-top itemImg" src="{{this.img}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                            <p class="card-text" id="price"><b>Php {{this.price}}.00</b></p>
+                        </div>
+                    </div>  
+                </div>  
+            {{/each}}
+            <form action="/register" method="get">
+                <button id="{{this._id}}" class="btn btn-primary orderNow"><i class="fas fa-flask"  style="font-size:40px;"></i>&nbsp;&nbsp;ORDER NOW</button>
+            </form>
+        {{/if}}
     </div>
 </section>
