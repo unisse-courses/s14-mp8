@@ -1,26 +1,30 @@
 {{#section 'header'}}
     <title>Milk Tea Labs | Profile</title>
     <link rel="stylesheet" href="/css/profile.css">
-    <script src="profile.js"></script>
+    <script src="/scripts/profile.js"></script>
 {{/section}}
 
 {{> messages}}
-<form action="/update" method="POST" class="EditProfile">
-  <div class="imgCont">
-    <img src="/img/logo3.png" class="LoginReg">
-  </div>
-    
-  <div class="inputsCont">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" value="{{username}}" required readonly>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" value="{{password}}" required>
 
-    <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address" value="{{address}}" required>
+<div>
+    <form class="EditProfile" id="updateUser">
+        <div class="inputsCont">
+            <input type="hidden" id="userID" name="custId" value="{{userID}}">
+            
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Username" name="name" value="{{name}}" id='updatename' required>
 
-    <button type="submit" id="btnLogin" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
-  </div>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" value="{{username}}" id='updateusername'required readonly>
 
-</form>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" value="{{password}}" id='updatepassword' readonly>
+
+            <label for="address"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address" name="address" value="{{address}}" id='updateaddress' required>
+
+            <button type="submit" id="btnSaveChange" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
+        </div>
+    </form>
+</div>

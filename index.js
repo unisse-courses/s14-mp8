@@ -72,3 +72,5 @@ app.use('/menu', productRouter);
 app.use('/login', userRouter);
 app.use('/profile', userRouter);
 app.use('/cart', cartRouter);
+//app.use('/admin', adminRouter);
+//app.use('/admin', productRouter);

@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model('users', userSchema);
 
-
 exports.create = function(obj, next) {
   const user = new userModel(obj);
 
@@ -25,24 +24,4 @@ exports.create = function(obj, next) {
   });
 };
 
-
-exports.getOne = function(query, next) {
-  userModel.findOne(query, function(err, user) {
-    next(err, user);
-  });
-};
-
-
-exports.getById = function(id, next) {
-  userModel.findById(id, function(err, user) {
-    next(err, user);
-  });
-};
-
-
-exports.findByIdAndUpdate = function(id, next) {
-  userModel.findById(id, function(err, user) {
-    next(err, user);
-  });
-};
-
+module.exports = userModel

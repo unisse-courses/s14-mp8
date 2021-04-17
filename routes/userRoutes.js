@@ -16,6 +16,6 @@ router.post('/login', loginValidation, userController.loginUser); //login users
 router.get('/logout', userController.logoutUser);// logout users
 
 router.get('/profile', userController.getUser);
-//router.post('/updateUser/:id', userController.updateUser)
+router.post('/updateUser/:id', userController.updateUser);
 
 module.exports = router;

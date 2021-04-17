@@ -37,7 +37,7 @@ exports.registerUser = function(req,res){
     if(errors.isEmpty()){
         const {name, username, address, password1} = req.body;
         
-        userModel.getOne({username : username}, function(err, result){
+        userModel.findOne({username : username}, function(err, result){
            if(result){
                req.flash('error_msg', 'User already exists');
                res.redirect('/login');
@@ -60,7 +60,7 @@ exports.registerUser = function(req,res){
                            req.flash('error_msg', 'Could not create user. Please Try Again!');
                            res.redirect('/register');
                        }else{
-                           userModel.getOne({username : username},(err,user1)=>{
+                           userModel.findOne({username : username},(err,user1)=>{
                                const cart = {
                                    _id : user1._id,
                                    products : [],
@@ -104,7 +104,7 @@ exports.loginUser = function(req,res){
         password
       } = req.body;
 
-    userModel.getOne({ username: username }, (err, user) => {
+    userModel.findOne({ username: username }, (err, user) => {
       if (err) {
         // Database error occurred...
         req.flash('error_msg', 'Something happened! Please try again.');
@@ -157,32 +157,32 @@ exports.logoutUser = (req, res) => {
 };
 
 exports.getUser = function(req,res){
-    userModel.getOne({ _id:req.session.user}, (err, user) => {
+    userModel.findOne({ _id:req.session.user}, (err, user) => {
         if(user){
-            const info = {
+            res.render('profile', {
+                userID : user._id,
+                name : user.name,
                 username : user.username,
                 password : user.password,
                 address : user.address,
                 user: req.session.name
-            }
-            res.render('profile', info);
+            });
         }
     });
 };
 
 exports.updateUser = function(req,res) {
-
   userModel.findByIdAndUpdate({_id:req.params.id},
     {
       $set: {
+        name : req.body.name,
         username: req.body.username,
         address: req.body.address,
-        password: req.body.password
       }
     }, (err) => {
-
-      if(err)
+      if(err){
         res.send(err);
+      }
     });
 };
 

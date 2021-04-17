@@ -14,15 +14,11 @@ $(document).ready(function() {
         $("#milkNum").val(num);
     });
     
-    $(this).on('click', '.delButton', function(){
-        $(".roe").remove();
-    });
-});
-
-
-//$(document).ready(function() {
-//    $(“p”).click(function() {
-//        $(this).css(“color”, “green”)
-//        ;
+    
+    //ADMIN
+//    $(this).on('click', '.delButton', function(){
+//        $(".roe").remove();
 //    });
-//});
+    
+    
+});
