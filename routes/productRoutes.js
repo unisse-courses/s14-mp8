@@ -8,6 +8,7 @@ router.get('/', productController.getMenu);
 
 //POSTS
 router.post('/admin/addItem', productController.addItem);
+router.post('/addToCart/:id', productController.addToCart);
 
 
 module.exports = router;

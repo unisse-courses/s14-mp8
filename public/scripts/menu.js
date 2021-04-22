@@ -1,36 +1,60 @@
 $(document).ready(function() {
     
-    var milkIDs=[]
     
     $('.addToCart').click(function(){
         itemID = this.id;
         
+        var object = {
+            product : itemID,
+            qty : 1
+        }
+        
+        $.ajax({
+                type: "POST",
+                data : JSON.stringify(object),
+                processData: false,
+                contentType: 'application/json',
+                url: "/menu/addToCart/"+itemID,
+            }).done(function(data){
+                $("#"+userID+".qty").val(qty)
+            });
+        
+        //Increment Cart Counter
         add = parseInt($('#atcNumIn').text());
         add++;
         $('#atcNumIn').text(add);
-        
-        console.log(add);
-        console.log(itemID);
-        
-        if(milkIDs.length == 0){
-            var item = {
-                id : itemID,
-                count : 1
-            }
-            
-            milkIDs.push(item);
-        }
-        else{
-            for(i=0; i < milkIDs.length; i++){
-                if(milkIDs[i].id == itemID){
-                    milkIDs[i].count++;
-                    break;
-                }
-            } 
-        }
-        
-        console.log(milkIDs);
     });
+    
+    
+//    $('.a').submit(function() {
+//        userID = $("#userID").val();
+//        
+//        var name = $("#updatename").val();
+//        var username = $("#updateusername").val();
+//        var password = $("#updatepassword").val();
+//        var address = $("#updateaddress").val();
+//        
+//
+//        var object = {
+//            name: name,
+//            username: username,
+//            address: address
+//        }
+//        
+//        console.log(object);
+//        
+//        $.ajax({
+//                type: "POST",
+//                data : JSON.stringify(object),
+//                processData: false,
+//                contentType: 'application/json',
+//                url: "/profile/updateUser/"+userID,
+//            }).done(function(data){
+//                $("#"+userID+".name").val(name);
+//                $("#"+userID+".username").val(username);
+//                $("#"+userID+".address").val(address);
+//            });
+//    })   
     
     
     

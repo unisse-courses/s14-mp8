@@ -1,12 +1,21 @@
 const productModel = require('../models/product');
+const cartModel = require('../models/cart');
 
 exports.getMenu = function(req,res){
-    productModel.getAllProducts({name : 1}, function(products){
-       res.render('menu', {
+    productModel.find({},function(err,result){
+        if(err) throw err;
+        
+        var menuObjects = [];
+        
+        result.forEach(function(doc){
+           menuObjects.push(doc.toObject()); 
+        });
+        
+        res.render('menu', {
            Title: 'Menu', 
-           products : products, 
+           products : menuObjects,
            user : req.session.name
-       }); 
+       });
     });
 }
 
@@ -29,5 +38,27 @@ exports.addItem = function(req,res){
             req.flash('success_msg', 'Item Added!');
             res.redirect('/menu');
         }
+    });
+}
+
+
+exports.addToCart = function(req,res){
+    const userID = req.session.user;
+    
+    console.log(req.params.id)
+    console.log(userID)
+    
+    cartModel.findByIdAndUpdate({_id:userID},
+    {
+      $set: {
+          cartItem : {
+              product : req.params.id,
+              //qty : ???
+          }
+      }
+    }, (err) => {
+      if(err){
+        res.send(err);
+      }
     });
 }

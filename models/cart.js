@@ -5,8 +5,7 @@ const cartSchema = new mongoose.Schema({
     cartItems: [{
         product: {type: mongoose.Schema.Types.ObjectId, ref:"products"},
         qty: {type: Number}
-    }],
-    totalPrice :{type: Number}
+    }]
 }, {
      toObject: {
        virtuals: true,
@@ -31,3 +30,5 @@ exports.getOne = function(query, next){
        next(err,cart); 
     });
 }
+
+module.exports = cartModel;

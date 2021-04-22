@@ -15,24 +15,13 @@ const productSchema = new mongoose.Schema({
 });
 
 const productModel = mongoose.model('products', productSchema);
+module.exports = productModel;
 
-exports.getAllProducts = function(sort, next){
-    productModel.find({}).sort(sort).exec(function(err,result){
-       if(err) throw err;
-        var menuObjects = [];
-        
-        result.forEach(function(doc){
-           menuObjects.push(doc.toObject()); 
-        });
-        
-        next(menuObjects);
-    });
-}
 
-exports.addProduct = function(obj,next){
-    const product = new productModel(obj);
-    
-    product.save(function(err,product){
-        next(err,product);
-    });
-};
+//exports.addProduct = function(obj,next){
+//    const product = new productModel(obj);
+//    
+//    product.save(function(err,product){
+//        next(err,product);
+//    });
+//};

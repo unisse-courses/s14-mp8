@@ -186,60 +186,8 @@ exports.updateUser = function(req,res) {
     });
 };
 
+exports.updatePassword = function(req,res){
+    
 
-// //----------------------------------------------------------
-// exports.editUser = (req, res, next) => {
-
-//   const {username, password, address} = req.body;
-//   console.log(req.body);
-  
-//   // get user objects to validate password
-//   // if match get one and update 
-//   // else redirect to profile page with error message for wrong password
-//   const user = {
-//     username : username,
-//     password : password,
-//     address : address,
-//   };
-
-//   userModel.getAndUpdate(
-//     { _id: req.session.user },
-//     { address: req.body.address },
-//     { new: true },
-//     (err, result) => {
-//       // if (err) {
-//       //   req.flash('error_msg', 'Something happened! Please try again.');
-//       //   res.redirect('/login');
-//       // } else {
-//       //   try {
-//       //     if (user) {
-//       //       // bycrypt.compare(password, user.password, (err, result) => {
-//       //       //   if (result) {
-//       //       //     req.session.user = user._id;
-//       //       //     req.session.address = user.address;
-//       //       //     res.status(200).json({
-//       //       //       message: "Address Successfully Updated",
-//       //       //     })
-
-//       //       //     res.redirect('/profile');
-//       //       //   } else {
-//       //       //     req.flash('error_msg', 'Passwords do not match');
-//       //       //     res.redirect('/profile');
-//       //       //   }
-//       //       // });
-//       //     }
-//       //   } catch (e) {
-//       //     console.log(e);
-//       //   }
-//       // }
-//       console.log(result);
-//       //if successful redirect to profile but send success message
-//       // res.status(200).json({
-//       //   message: "Address Successfully Updated",
-//       // })
-
-//       req.flash('successfully updated address');
-//       res.redirect('/profile');
-
-//     }
-// )};
+    
+}
