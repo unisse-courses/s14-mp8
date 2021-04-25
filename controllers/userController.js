@@ -187,7 +187,13 @@ exports.updateUser = function(req,res) {
 };
 
 exports.updatePassword = function(req,res){
-    
+    const errors = validationResult(req);
 
-    
+    if(errors.isEmpty()){
+        const {currPass, newPass1, newPass2} = req.body;
+        
+        if(newPass1 === newPass2){
+            
+        }
+    }
 }

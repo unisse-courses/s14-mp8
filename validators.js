@@ -25,4 +25,21 @@ const loginValidation = [
   body('password').not().isEmpty().withMessage("Password is required.")
 ];
 
-module.exports = {registerValidation, loginValidation};
+
+const passchangeValidation =[
+  body('newPass1').isLength({ min: 6 }).withMessage("Password must be at least 6 characters long."),
+
+  // Confirm Password needs to be min 6 chars AND must match the req.body.password field
+  body('newPass2').isLength({ min: 6 }).withMessage("Password must be at least 6 characters long.")
+    .custom((value, { req }) => {
+      if (value !== req.body.password1) {
+        throw new Error("Passwords must match.");
+      }
+      return true;
+    }),
+    
+  body('currPass').not().isEmpty().withMessage("Current password is required.")
+    
+]
+
+module.exports = {registerValidation, loginValidation, passchangeValidation};

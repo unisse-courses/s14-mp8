@@ -1,6 +1,8 @@
 body{
     background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%
 }
 
 .LoginReg{
@@ -48,4 +50,42 @@ label{
 .btnLogReg{
   position: relative;
   top: 10px;
+}
+
+
+
+.modal {
+  display: none ; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  width: 500px; /* Full width */
+  height: 300px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: white; /* Fallback color */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid black;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+#passBtnMod{
+    float: right;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
 }

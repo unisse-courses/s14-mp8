@@ -6,7 +6,6 @@
 
 {{> messages}}
 
-
 <div>
     <form class="EditProfile" id="updateUser">
         <div class="inputsCont">
@@ -19,7 +18,7 @@
             <input type="text" placeholder="Enter Username" name="username" value="{{username}}" id='updateusername'required readonly>
 
             <label for="password"><b>Password</b></label>
-<!--            <input type="password" placeholder="Enter Password" name="password" value="{{password}}" id='updatepassword' readonly>-->
+            <button id="passBtnMod" class="btn btn-primary" type="button">Change Password</button><br><br>
             
             <label for="address"><b>Address</b></label>
             <input type="text" placeholder="Enter Address" name="address" value="{{address}}" id='updateaddress' required>
@@ -31,4 +30,25 @@
 
 
 
+
+
 <!--MAKE MODAL FOR PASSWORD-->
+<div id="passmodalCont" class="modal">
+  <!-- Modal content -->
+  {{> messages}}
+  <div class="pass-modal-content">
+    <span class="close">&times;</span>
+    <form class="passFormModal" id="{{userID}}">
+        <label for="currPass"><b>Current Password</b></label>
+        <input type="password" placeholder="" name="currPass" id='updateCurrPass' required>
+        
+        <label for="newPass1"><b>New Password</b></label>
+        <input type="password" placeholder="" name="newPass1"  id='updateNewPass1' required>
+        
+        <label for="newPass2"><b>Confirm New Password</b></label>
+        <input type="password" placeholder="" name="newPass2"  id='updateNewPass2' required>
+        
+        <button type="button" id="btnSavePass" class="btn btn-success">Confirm</button>
+    </form>
+  </div>
+</div>
