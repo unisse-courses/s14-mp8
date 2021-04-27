@@ -7,48 +7,47 @@
 {{> messages}}
 
 <div>
-    <form class="EditProfile" id="updateUser">
-        <div class="inputsCont">
-            <input type="hidden" id="userID" name="custId" value="{{userID}}">
-            
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Username" name="name" value="{{name}}" id='updatename' required>
+    <div>
+       <h1 class="headerTemp"><span id="menuHead">Profile Settings</span></h1> 
+    </div>
+    <div id="profilePic">
+        <i class="fas fa-user-circle" id="profPic" style="font-size:200px;"></i>
+        <ul>
+            <li class="profileBtns" id= "settingsBtn"><i class="fas fa-users-cog"  style="font-size:25px;"></i>&nbsp;<span class="profileBtnsM">Settings</span></li>
+            <li class="profileBtns" id= "myOrdersbtn"><i class="fas fa-bars"  style="font-size:25px;"></i>&nbsp;<span class="profileBtnsM">My Orders</span></li>
+            <li class="profileBtns" id="logoutBtn"><i class="glyphicon glyphicon-log-out"  style="font-size:20px;"></i>&nbsp;<span class="profileBtnsM">Logout</span></li>
+        </ul>
+    </div>
+    <div id="profileForm">
+        <form class="EditProfile" id="updateUser">
+            <div class="inputsCont">
+                <input type="hidden" id="userID" name="custId" value="{{userID}}">
 
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" value="{{username}}" id='updateusername'required readonly>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Enter Username" name="name" value="{{name}}" id='updatename' required>
 
-            <label for="password"><b>Password</b></label>
-            <button id="passBtnMod" class="btn btn-primary" type="button">Change Password</button><br><br>
-            
-            <label for="address"><b>Address</b></label>
-            <input type="text" placeholder="Enter Address" name="address" value="{{address}}" id='updateaddress' required>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" value="{{username}}" id='updateusername'required readonly>
 
-            <button type="submit" id="btnSaveChange" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
-        </div>
-    </form>
-</div>
+                <span><b>Password</b></span><br>
+                <div id="passHide">
+                    <label for="currPass"><b>Current Password</b></label>
+                    <input type="password" placeholder="" name="currPass" id='updateCurrPass' required>
 
+                    <label for="newPass1"><b>New Password</b></label>
+                    <input type="password" placeholder="" name="newPass1"  id='updateNewPass1' required>
 
+                    <label for="newPass2"><b>Confirm New Password</b></label>
+                    <input type="password" placeholder="" name="newPass2"  id='updateNewPass2' required>
+                </div>
+                
+                <button id="passBtnMod" class="btn btn-primary" type="button">Change Password</button><br><br>
 
+                <label for="address"><b>Address</b></label>
+                <input type="text" placeholder="Enter Address" name="address" value="{{address}}" id='updateaddress' required>
 
-
-<!--MAKE MODAL FOR PASSWORD-->
-<div id="passmodalCont" class="modal">
-  <!-- Modal content -->
-  {{> messages}}
-  <div class="pass-modal-content">
-    <span class="close">&times;</span>
-    <form class="passFormModal" id="{{userID}}">
-        <label for="currPass"><b>Current Password</b></label>
-        <input type="password" placeholder="" name="currPass" id='updateCurrPass' required>
-        
-        <label for="newPass1"><b>New Password</b></label>
-        <input type="password" placeholder="" name="newPass1"  id='updateNewPass1' required>
-        
-        <label for="newPass2"><b>Confirm New Password</b></label>
-        <input type="password" placeholder="" name="newPass2"  id='updateNewPass2' required>
-        
-        <button type="button" id="btnSavePass" class="btn btn-success">Confirm</button>
-    </form>
-  </div>
+                <button type="button" id="btnSaveChange" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
+            </div>
+        </form>
+    </div>
 </div>

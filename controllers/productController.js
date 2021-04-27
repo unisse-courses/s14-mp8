@@ -45,8 +45,8 @@ exports.addItem = function(req,res){
 exports.addToCart = function(req,res){
     const userID = req.session.user;
     
-    console.log(req.params.id)
-    console.log(userID)
+    console.log("product " + req.params.id);
+    console.log("user " + userID);
     
     cartModel.findByIdAndUpdate({_id:userID},
     {
@@ -56,9 +56,29 @@ exports.addToCart = function(req,res){
               //qty : ???
           }
       }
-    }, (err) => {
-      if(err){
-        res.send(err);
-      }
+    }, (err,cart) => {
+        if(err){
+            res.send(err)  
+        }
+        else{
+            console.log(cart)
+            res.send(cart)
+        }
     });
+    
+//  var query = {
+//    _id: req.session.user
+//  };
+//
+//  var update = {
+//    $set: { 
+//        id: '109' 
+//    }
+//  };
+//
+//  studentModel.findOneAndUpdate(query, update, { new: true }, function(err, user) {
+//    if (err) throw err;
+//    console.log(user);
+//    res.send(user);
+//  });
 }

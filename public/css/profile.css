@@ -12,20 +12,66 @@ body{
   top: 20px;
 }
 
+.headerTemp{
+    text-align: center;
+    position: relative;
+    top: 45px;
+}
+    
+
+.profileBtns{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.profileBtnsM{
+    margin-left: 5px;
+}
+
+.profileBtnsM:hover,
+.profileBtnsM:focus {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+#profPic{
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+#profilePic{
+    display: inline-block;
+    position: relative;
+    bottom: 0px;
+}
+
+#profileForm{
+    display: inline-block;
+    position:relative;
+    width: 700px;   
+}
+
 .EditProfile{
-  display: block;
-  position: relative;
-  top: 40px;
-  width: 550px;
-  margin-left: auto;
-  margin-right: auto;
-  border-color: black;
-  border-style: groove;
-  border-radius: 50px 0px 50px 0px;
-  color: black;
-  padding: 0px 0px 40px 0px;
-  background-color: white;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,164,198,1) 61%, rgba(0,64,78,1) 100%);
+    display: block;
+    color: black;
+    background-color:#c4ddb6;
+    height: 450px;
+    position: relative;
+    bottom: 30px;
+    left: 8vh;
+}
+
+#profPic{
+    font-size: 200px;
+}
+
+#profHead{
+    display: inline-block;
+    position: relative;
+    font-size: 50px;
+    top: -200px;
 }
 
 .logregSwitch{
@@ -36,11 +82,11 @@ body{
 }
 
 .inputsCont{
-  position: relative;
-  margin-top: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 450px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    padding-top: 40px;
 }
 
 label{
@@ -52,40 +98,6 @@ label{
   top: 10px;
 }
 
-
-
-.modal {
-  display: none ; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  width: 500px; /* Full width */
-  height: 300px; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: white; /* Fallback color */
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid black;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
-
-#passBtnMod{
-    float: right;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  text-decoration: none;
-  cursor: pointer;
+#passHide{
+    display: none;
 }

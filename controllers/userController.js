@@ -63,8 +63,7 @@ exports.registerUser = function(req,res){
                            userModel.findOne({username : username},(err,user1)=>{
                                const cart = {
                                    _id : user1._id,
-                                   products : [],
-                                   totalPrice : 0
+                                   products : []
                                }
                                
                                cartModel.create(cart, function(err,cart){
@@ -149,9 +148,10 @@ exports.loginUser = function(req,res){
 exports.logoutUser = (req, res) => {
   if (req.session) {
     req.session.destroy(() => {
+        console.log(req.session); // Gives session
         res.clearCookie('connect.sid');
         res.redirect('/login');
-        console.log(req.session);
+        console.log(req.session); // Must be undefined
     });
   }
 };
@@ -176,12 +176,16 @@ exports.updateUser = function(req,res) {
     {
       $set: {
         name : req.body.name,
-        username: req.body.username,
         address: req.body.address,
       }
-    }, (err) => {
+    }, (err,result) => {
       if(err){
         res.send(err);
+      }
+      else{
+        console.log("Name/Address has been Changed");
+        console.log(result);
+        res.redirect('/profile')
       }
     });
 };
@@ -192,8 +196,33 @@ exports.updatePassword = function(req,res){
     if(errors.isEmpty()){
         const {currPass, newPass1, newPass2} = req.body;
         
-        if(newPass1 === newPass2){
-            
-        }
+        userModel.findOne({_id : req.params.id}, (err,user)=>{
+             if (err) {
+                // Database error occurred...
+                req.flash('error_msg', 'Something happened! Please try again.');
+                res.redirect('/login');
+            } else{
+                if(user){
+                    bcypt.compare(currPass, user.password, (err,result) => {
+                        if(result){
+                          if(newPass1 === newPass2){
+                              userModel.findByIdAndUpdate({_id: req.params.id},{
+                                  $set:{
+                                      password: newPass1
+                                  }
+                              },(err,result)=>{
+                                  if(err){
+                                      req.flash('error_msg', 'Error in changing password. Please try again!');
+                                  }else{
+                                      req.flash('success_msg', 'Password has been changed!');
+                                      res.redirect('/profile')
+                                  }
+                              })
+                          }  
+                        }
+                    })
+                }
+            }
+        })
     }
 }

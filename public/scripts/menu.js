@@ -6,7 +6,6 @@ $(document).ready(function() {
         
         var object = {
             product : itemID,
-            qty : 1
         }
         
         $.ajax({
@@ -16,7 +15,7 @@ $(document).ready(function() {
                 contentType: 'application/json',
                 url: "/menu/addToCart/"+itemID,
             }).done(function(data){
-                $("#"+userID+".qty").val(qty)
+                ("#"+itemID="product").val()
             });
         
         //Increment Cart Counter
