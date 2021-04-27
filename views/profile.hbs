@@ -5,21 +5,19 @@
 {{/section}}
 
 {{> messages}}
-
 <div>
     <div>
        <h1 class="headerTemp"><span id="menuHead">Profile Settings</span></h1> 
     </div>
-    <div id="profilePic">
+    <div class="profilePic">
         <i class="fas fa-user-circle" id="profPic" style="font-size:200px;"></i>
         <ul>
             <li class="profileBtns" id= "settingsBtn"><i class="fas fa-users-cog"  style="font-size:25px;"></i>&nbsp;<span class="profileBtnsM">Settings</span></li>
             <li class="profileBtns" id= "myOrdersbtn"><i class="fas fa-bars"  style="font-size:25px;"></i>&nbsp;<span class="profileBtnsM">My Orders</span></li>
-            <li class="profileBtns" id="logoutBtn"><i class="glyphicon glyphicon-log-out"  style="font-size:20px;"></i>&nbsp;<span class="profileBtnsM">Logout</span></li>
         </ul>
     </div>
     <div id="profileForm">
-        <form class="EditProfile" id="updateUser">
+        <form method="post" action="/profile/updateUser" class="EditProfile" id="updateUser">
             <div class="inputsCont">
                 <input type="hidden" id="userID" name="custId" value="{{userID}}">
 
@@ -31,22 +29,20 @@
 
                 <span><b>Password</b></span><br>
                 <div id="passHide">
-                    <label for="currPass"><b>Current Password</b></label>
-                    <input type="password" placeholder="" name="currPass" id='updateCurrPass' required>
+                    <input type="password" placeholder="Current Password" id='currPass'>
 
-                    <label for="newPass1"><b>New Password</b></label>
-                    <input type="password" placeholder="" name="newPass1"  id='updateNewPass1' required>
+                    <input type="password" placeholder="New Password" id='newPass1'>
 
-                    <label for="newPass2"><b>Confirm New Password</b></label>
-                    <input type="password" placeholder="" name="newPass2"  id='updateNewPass2' required>
+                    <input type="password" placeholder="Confirm New Password" id='newPass2'>
+                    <button id="passBtnCan" class="btn btn-primary" type="button">Cancel</button><br>
                 </div>
                 
-                <button id="passBtnMod" class="btn btn-primary" type="button">Change Password</button><br><br>
+                <button id="passBtnMod" class="btn btn-primary" type="button">Change Password</button><br>
 
-                <label for="address"><b>Address</b></label>
+                <label for="address" id="addressLabel"><b>Address</b></label>
                 <input type="text" placeholder="Enter Address" name="address" value="{{address}}" id='updateaddress' required>
 
-                <button type="button" id="btnSaveChange" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
+                <button type="submit" id="btnSaveChange" class="btn btn-primary btnLogReg"><span class="fas fa-address-card" style='font-size:20px'></span>&nbsp;&nbsp;Save Changes</button>
             </div>
         </form>
     </div>

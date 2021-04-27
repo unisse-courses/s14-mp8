@@ -171,58 +171,75 @@ exports.getUser = function(req,res){
     });
 };
 
-exports.updateUser = function(req,res) {
-  userModel.findByIdAndUpdate({_id:req.params.id},
-    {
-      $set: {
-        name : req.body.name,
-        address: req.body.address,
-      }
-    }, (err,result) => {
-      if(err){
-        res.send(err);
-      }
-      else{
-        console.log("Name/Address has been Changed");
-        console.log(result);
-        res.redirect('/profile')
-      }
-    });
-};
-
-exports.updatePassword = function(req,res){
-    const errors = validationResult(req);
-
-    if(errors.isEmpty()){
-        const {currPass, newPass1, newPass2} = req.body;
-        
-        userModel.findOne({_id : req.params.id}, (err,user)=>{
-             if (err) {
-                // Database error occurred...
-                req.flash('error_msg', 'Something happened! Please try again.');
-                res.redirect('/login');
-            } else{
-                if(user){
-                    bcypt.compare(currPass, user.password, (err,result) => {
-                        if(result){
-                          if(newPass1 === newPass2){
-                              userModel.findByIdAndUpdate({_id: req.params.id},{
-                                  $set:{
-                                      password: newPass1
-                                  }
-                              },(err,result)=>{
-                                  if(err){
-                                      req.flash('error_msg', 'Error in changing password. Please try again!');
-                                  }else{
-                                      req.flash('success_msg', 'Password has been changed!');
-                                      res.redirect('/profile')
-                                  }
-                              })
-                          }  
-                        }
-                    })
+exports.updateUser = function(req,res){
+    const {name, username, currPass, newPass1, newPass2, address} = req.body;
+    
+    if(currPass == undefined){
+        console.log("Update name and add only");
+        var update ={
+            $set : {name,address}
+        }
+            
+            userModel.findByIdAndUpdate({_id : req.session.user}, update, {new: true}, function(err, user) {
+                if(err){
+                    throw err;
+                }else{
+                    if(user){
+                        console.log(user);
+                        req.flash('success_msg','Name and address has been changed');
+                        res.redirect('/profile');
+                    }
                 }
-            }
-        })
-    }
+            })
+        }else{
+            userModel.findOne({_id:req.session.user},function(err,user){
+                if(err){
+                    req.flash('error_msg', 'Something happened! Please try again.');
+                    res.redirect('/profile');
+                }else{
+                    if(user){
+                        bcrypt.compare(currPass, user.password, function(err,result){
+                            if(result){
+                                if(newPass1 == newPass2){
+                                    const saltRounds = 10;
+                                    
+                                    bcrypt.hash(newPass1, saltRounds, (err,hashedPass)=>{
+                                        if(hashedPass){
+                                            var update = {
+                                                $set : {
+                                                    name:name,
+                                                    password: hashedPass,
+                                                    address: address
+                                                }
+                                            }
+                                            
+                                            userModel.findByIdAndUpdate({_id:req.session.user}, update,{new:true}, function(err,result){
+                                                if(err){
+                                                    throw err;
+                                                }else{
+                                                    console.log(user);
+                                                    req.flash('success_msg','Password Updated!');
+                                                    res.redirect('/profile');
+                                                }
+                                            })
+                                        }
+                                        else{
+                                            req.flash('error_msg', 'Error in changing password');
+                                            res.redirect('/profile');
+                                        }
+                                    })
+                                }else{
+                                    req.flash('error_msg', 'Passwords do not match.');
+                                    res.redirect('/profile');
+                                }
+                            }
+                        })
+                    }
+                }    
+            })
+        }
+}
+
+exports.deleteUser = function(req,res){
+    
 }

@@ -15,7 +15,7 @@ body{
 .headerTemp{
     text-align: center;
     position: relative;
-    top: 45px;
+    top: 0px;
 }
     
 
@@ -26,6 +26,11 @@ body{
 
 .profileBtnsM{
     margin-left: 5px;
+}
+
+::placeholder {
+  color: darkgrey;
+  opacity: 1; 
 }
 
 .profileBtnsM:hover,
@@ -41,10 +46,17 @@ body{
     margin-bottom: 70px;
 }
 
-#profilePic{
+
+.profilePic{
     display: inline-block;
     position: relative;
-    bottom: 0px;
+    bottom: 52px;
+}
+
+.profilePicPass{
+    display: inline-block;
+    position: relative;
+    bottom: 163px;
 }
 
 #profileForm{
@@ -53,19 +65,35 @@ body{
     width: 700px;   
 }
 
+a { 
+    color: inherit; 
+    } 
+
+
 .EditProfile{
     display: block;
     color: black;
     background-color:#c4ddb6;
     height: 450px;
     position: relative;
-    bottom: 30px;
+    bottom: 52px;
+    left: 8vh;
+}
+
+
+.EditProfilePass{
+    display: block;
+    color: black;
+    background-color: #c4ddb6;
+    height: 600px;
+    position: relative;
+    bottom: 0px;
     left: 8vh;
 }
 
 #profPic{
     font-size: 200px;
-}
+}   
 
 #profHead{
     display: inline-block;
@@ -99,5 +127,9 @@ label{
 }
 
 #passHide{
-    display: none;
+    display: inline-block;
+}
+
+#addressLabel{
+    margin-top: 10px;
 }

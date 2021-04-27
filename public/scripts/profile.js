@@ -1,33 +1,30 @@
 $(document).ready(function() {
     
-    $('#updateUser').submit(function() {
-        userID = $("#userID").val();
-        
-        var name = $("#updatename").val();
-        var address = $("#updateaddress").val();
-        
-
-        var object = {
-            name: name,
-            address: address
-        }
-        
-        console.log(object);
-     
-        $.ajax({
-                type: "POST",
-                data : JSON.stringify(object),
-                processData: false,
-                contentType: 'application/json',
-                url: "/profile/updateUser/"+userID,
-            }).done(function(data){
-                $("#"+userID+".name").val(name);
-                $("#"+userID+".address").val(address);
-            });
-        })
+    $("#passHide").hide();
+    
+   
+    
+    $("#passBtnMod").click(function(){
+        $("#passHide").show();
+        $(".EditProfile").removeClass("EditProfile").addClass("EditProfilePass");
+        $(".profilePic").removeClass("profilePic").addClass("profilePicPass");
+        $('#currPass').attr('name', 'currPass');
+        $('#newPass1').attr('name', 'newPass1');
+        $('#newPass2').attr('name', 'newPass2');
+        $(this).hide();
+    })
+    
+    $("#passBtnCan").click(function(){
+        $("#passHide").hide();
+        $("#currPass").removeAttr("name");
+        $("#newPass1").removeAttr("name");
+        $("#newPass2").removeAttr("name");
+        $(".EditProfilePass").removeClass("EditProfilePass").addClass("EditProfile");
+        $(".profilePicPass").removeClass("profilePicPass").addClass("profilePic");
+        $("#passBtnMod").show();
+    })
 });
 
-//
 //    var deleteID;
 //    $(this).on('click','.launchDelete',function(){
 //        deleteID = $(this).data('id');
