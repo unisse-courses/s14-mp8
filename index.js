@@ -5,6 +5,7 @@ const handlebars = require('handlebars');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 
 
 const session = require('express-session');
@@ -35,6 +36,7 @@ app.engine( 'hbs', exphbs({
             return null;
         },
   },
+    handlebars : allowInsecurePrototypeAccess(handlebars),
 }));
 
 app.set('view engine', 'hbs');

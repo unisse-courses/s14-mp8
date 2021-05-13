@@ -17,7 +17,7 @@ h2{
     background: #c5e5f4;
     color: black;
     height: auto;
-    width: 1000px;
+    width: 1100px;
     position: relative;
     left: 150px;
 }
@@ -78,7 +78,7 @@ h2{
 .cartPrice{
     position: relative;
     top: 10px;
-    left: 100px;
+    left: 70px;
 }
 
 .cartSubT{
@@ -90,7 +90,6 @@ h2{
     height: 15px;
     position: relative;
     top: 8px;
-    left: 130px;
 }
 
 .plusminBtn{
@@ -104,6 +103,12 @@ h2{
 .qtyCont{
     position: relative;
     right: 20px;
+}
+
+#btnCheck{
+    position: relative;
+    right: 170px;
+    bottom: 30px;
 }
 
 

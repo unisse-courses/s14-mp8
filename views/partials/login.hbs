@@ -1,6 +1,6 @@
 {{#section 'header'}}
     <link rel="stylesheet" href="/css/lognav.css">
-    <!--<script src='time.js'></script>-->
+<!--    <script src='loadCart.js'></script>-->
 {{/section}}
 
 <nav class="navbar navbar-inverse">
@@ -14,7 +14,13 @@
     <ul class="nav navbar-nav">
         <li id="Home"><a href="/"><i class="fas fa-home" style='font-size:24px'></i>&nbsp;&nbsp;Home</a></li>
         <li id="Menu"><a href="/menu"><i class="fas fa-flask"></i>&nbsp;&nbsp;Brews</a></li>
-        <li id="Cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a><div id="atcNum"><span ><b id="atcNumIn">0</b></span></div></li>
+        <li id="Cart"><a href="/cart"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a>
+            {{#if total}}
+                <div id="atcNum"><span ><b id="atcNumIn">{{total}}</b></span></div>
+            {{else}}
+                <div id="atcNum"><span ><b id="atcNumIn">0</b></span></div>
+            {{/if}}
+        </li>
     </ul>
      
     

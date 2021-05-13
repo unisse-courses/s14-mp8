@@ -1,22 +1,18 @@
 $(document).ready(function() {
     
     
-    $('.addToCart').click(function(){
+    $('.addToCart').on("click",function(){
         itemID = this.id;
         
+        console.log(itemID);
         var object = {
             product : itemID,
         }
         
         $.ajax({
                 type: "POST",
-                data : JSON.stringify(object),
-                processData: false,
-                contentType: 'application/json',
                 url: "/menu/addToCart/"+itemID,
-            }).done(function(data){
-                ("#"+itemID="product").val()
-            });
+            }).done(function(data){});
         
         //Increment Cart Counter
         add = parseInt($('#atcNumIn').text());
@@ -54,8 +50,5 @@ $(document).ready(function() {
 //                $("#"+userID+".address").val(address);
 //            });
 //    })   
-    
-    
-    
-    
+     
 });

@@ -8,13 +8,13 @@ exports.getMenu = function(req,res){
         var menuObjects = [];
         
         result.forEach(function(doc){
-           menuObjects.push(doc.toObject()); 
+           menuObjects.push(doc.toObject());
         });
         
         res.render('menu', {
            Title: 'Menu', 
            products : menuObjects,
-           user : req.session.name
+           user : req.session.name,
        });
     });
 }
@@ -44,41 +44,44 @@ exports.addItem = function(req,res){
 
 exports.addToCart = function(req,res){
     const userID = req.session.user;
+    const itemID = req.params.id;
     
-    console.log("product " + req.params.id);
+    console.log("product " + itemID);
     console.log("user " + userID);
     
-    cartModel.findByIdAndUpdate({_id:userID},
-    {
-      $set: {
-          cartItem : {
-              product : req.params.id,
-              //qty : ???
-          }
-      }
-    }, (err,cart) => {
-        if(err){
-            res.send(err)  
+    cartModel.find({_id: userID , "cartItems.product" : itemID},function(err,cart){
+        console.log(err);
+        console.log(cart);
+        
+        if(cart.length){
+            cartModel.findOneAndUpdate({_id:userID , "cartItems.product" : itemID},{$inc : {"cartItems.$.qty" : 1}},{new:true}, function(err,cart){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log("INCREMENT ITEM");
+                    console.log(cart);
+                }
+            });
         }
         else{
-            console.log(cart)
-            res.send(cart)
+            cartModel.findByIdAndUpdate({_id:userID},
+                {
+                    $push: {
+                        cartItems : {
+                            product : itemID,
+                            qty : 1
+                        }
+                    }
+                }, (err,cart) => {
+                    if(err){
+                        res.send(err)  
+                    }
+                    else{
+                        console.log(cart)
+                        res.send(cart)
+                    }
+                });
         }
     });
-    
-//  var query = {
-//    _id: req.session.user
-//  };
-//
-//  var update = {
-//    $set: { 
-//        id: '109' 
-//    }
-//  };
-//
-//  studentModel.findOneAndUpdate(query, update, { new: true }, function(err, user) {
-//    if (err) throw err;
-//    console.log(user);
-//    res.send(user);
-//  });
 }
