@@ -26,38 +26,3 @@ exports.getCart = function(req,res){
          }
     })
 }
-
-//exports.getMenu = function(req,res){
-//    productModel.find({},function(err,result){
-//        if(err) throw err;
-//        
-//        var menuObjects = [];
-//        
-//        result.forEach(function(doc){
-//           menuObjects.push(doc.toObject());
-//        });
-//        
-//        res.render('menu', {
-//           Title: 'Menu', 
-//           products : menuObjects,
-//           user : req.session.name
-//       });
-//    });
-//}
-
-
-
-//exports.updateUser = function(req,res) {
-//  userModel.findByIdAndUpdate({_id:req.params.id},
-//    {
-//      $set: {
-//        name : req.body.name,
-//        username: req.body.username,
-//        address: req.body.address,
-//      }
-//    }, (err) => {
-//      if(err){
-//        res.send(err);
-//      }
-//    });
-//};

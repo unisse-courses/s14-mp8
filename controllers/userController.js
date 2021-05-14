@@ -159,14 +159,29 @@ exports.logoutUser = (req, res) => {
 exports.getUser = function(req,res){
     userModel.findOne({ _id:req.session.user}, (err, user) => {
         if(user){
-            res.render('profile', {
-                userID : user._id,
-                name : user.name,
-                username : user.username,
-                password : user.password,
-                address : user.address,
-                user: req.session.name
-            });
+            cartModel.findOne({_id : req.session.user}).populate({path: "cartItems.product", model: "products"}).lean().exec(function(err,cart){
+                     if(err){
+                         console.log(err);
+                     }else{
+                         var i;
+                         var totalCartItems = 0;
+
+                         for(i = 0; i<cart.cartItems.length; i++){
+                             totalCartItems += cart.cartItems[i].qty;
+                         }
+
+                         console.log(JSON.stringify(cart, null, 4));
+                         res.render('profile', {
+                             user: req.session.name,
+                             total : totalCartItems,
+                             userID : user._id,
+                             name : user.name,
+                             username : user.username,
+                             password : user.password,
+                             address : user.address,
+                             user: req.session.name
+                         });
+                    }})
         }
     });
 };
@@ -186,7 +201,7 @@ exports.updateUser = function(req,res){
                 }else{
                     if(user){
                         console.log(user);
-                        req.flash('success_msg','Name and address has been changed');
+                        req.flash('success_msg','Name and address has been updated');
                         res.redirect('/profile');
                     }
                 }
