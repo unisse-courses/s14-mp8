@@ -121,7 +121,7 @@ exports.loginUser = function(req,res){
               req.session.user = user._id;
               req.session.name = user.name;
 
-              console.log(req.session);
+//              console.log(req.session);
               req.flash('success_msg', "Logged In");
               res.redirect('/');
 
@@ -148,10 +148,10 @@ exports.loginUser = function(req,res){
 exports.logoutUser = (req, res) => {
   if (req.session) {
     req.session.destroy(() => {
-        console.log(req.session); // Gives session
+//        console.log(req.session); // Gives session
         res.clearCookie('connect.sid');
         res.redirect('/login');
-        console.log(req.session); // Must be undefined
+//        console.log(req.session); // Must be undefined
     });
   }
 };
@@ -170,7 +170,7 @@ exports.getUser = function(req,res){
                              totalCartItems += cart.cartItems[i].qty;
                          }
 
-                         console.log(JSON.stringify(cart, null, 4));
+//                         console.log(JSON.stringify(cart, null, 4));
                          res.render('profile', {
                              user: req.session.name,
                              total : totalCartItems,

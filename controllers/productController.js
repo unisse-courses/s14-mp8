@@ -79,21 +79,14 @@ exports.addToCart = function(req,res){
     const userID = req.session.user;
     const itemID = req.params.id;
     
-    console.log("product " + itemID);
-    console.log("user " + userID);
-    
     cartModel.find({_id: userID , "cartItems.product" : itemID},function(err,cart){
-        console.log(err);
-        console.log(cart);
-        
         if(cart.length){
             cartModel.findOneAndUpdate({_id:userID , "cartItems.product" : itemID},{$inc : {"cartItems.$.qty" : 1}},{new:true}, function(err,cart){
                 if(err){
                     console.log(err);
                 }
                 else{
-                    console.log("INCREMENT ITEM");
-                    console.log(cart);
+                    res.sendStatus(204);
                 }
             });
         }
@@ -111,8 +104,7 @@ exports.addToCart = function(req,res){
                         res.send(err)  
                     }
                     else{
-                        console.log(cart)
-                        res.send(cart)
+                        res.sendStatus(201)
                     }
                 });
         }

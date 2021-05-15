@@ -19,7 +19,7 @@ exports.getHome = function(req,res){
                  totalCartItems += cart.cartItems[i].qty;
              }
              
-             console.log(JSON.stringify(cart, null, 4));
+//             console.log(JSON.stringify(cart, null, 4));
              res.render('home', {
                  user: req.session.name,
                  total : totalCartItems

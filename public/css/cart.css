@@ -60,19 +60,19 @@ h2{
 }
 
 
-#milkNum{
-    width: 30px;
-    height: 30px;
-    border: black;
-    border-radius: 10px;
-    border-style: none;
-    text-align: center;
-    position: relative;
-    left: 50px;
-    top: 10px;
-    background: #e7f0e2;
-    margin-left: 5px;
-    margin-right: 5px;
+input.milkNum{
+    width: 30px !important;
+    height: 30px !important;
+    border: black !important;
+    border-radius: 10px !important;
+    border-style: none !important;
+    text-align: center !important;
+    position: relative !important;
+    left: 50px !important;
+    top: 10px !important;
+    background: #e7f0e2 !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
 }
 
 .cartPrice{

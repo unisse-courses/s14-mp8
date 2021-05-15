@@ -28,7 +28,7 @@
                             <tr class='roe'>
                                 <td class='cartPicCont'><img src="{{product.img}}" class='cartPic'></td>
                                 <td><span class='itemName'>{{product.name}}</span></td>
-                                <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn"><input type="text" id="milkNum" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn"></td>
+                                <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn" id='{{product._id}}'><input type="text" class="milkNum" id="aaa{{product._id}}" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn" id='{{product._id}}'></td>
                                 <td class='delButton'><img src="/img/close.png" class='closePic'></td>
                                 <td><span class='cartPrice'>${{product.price}}.00</span></td>
                                 <td><span class='cartPrice'>${{product.price}}.00</span></td>
