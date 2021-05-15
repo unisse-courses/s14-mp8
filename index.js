@@ -47,7 +47,8 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/scripts'));
+app.use(express.static(__dirname + '/public/img'));
+//app.use(express.static(__dirname + '/scripts'));
 
 app.listen(port, function() {
     console.log('App listening at port ' + port);
