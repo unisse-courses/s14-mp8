@@ -2,8 +2,7 @@
 // and exporting it for use in all other files through the module.exports
 
 const mongoose = require('mongoose');
-
-const databaseURL ='mongodb+srv://Broqzzz:7h0cPMatG7T1do9o@ccapdev-ohkor.mongodb.net/MilkTeaLabs?retryWrites=true&w=majority';
+const{dbURL} = require('../config.js');
 
 const options = { 
   useNewUrlParser: true,
@@ -11,6 +10,6 @@ const options = {
   useFindAndModify: false
 };
 
-mongoose.connect(databaseURL, options);
+mongoose.connect(dbURL, options);
 
 module.exports = mongoose;

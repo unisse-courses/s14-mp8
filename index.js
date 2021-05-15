@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const mongoose = require('./models/connection');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const {envPort, sessionKey} = require('./config.js');
 
 
 const session = require('express-session');
@@ -21,7 +22,7 @@ const transactionRouter = require('./routes/transactionRoutes');
 const userRouter = require('./routes/userRoutes');
 const indexRouter = require('./routes/index');
 
-const port = 3000;
+const port = envPort || 3000;
 const app = express();
 
 app.engine( 'hbs', exphbs({
@@ -53,7 +54,7 @@ app.listen(port, function() {
 });
 
 app.use(session({
-  secret: 'Cookiez',
+  secret: sessionKey,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: true,
