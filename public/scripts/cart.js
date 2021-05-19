@@ -1,19 +1,33 @@
 $(document).ready(function() {
     
     $(this).on('click','.plus',function(){
-        itemID = this.id
+        itemID = this.id;
         
-        selector = '#aaa'+itemID
-        console.log(selector)
+        selSub = '#sub'+itemID;
+        subtotal = $(selSub).html();
         
-        num = $(selector).val();
+        selPrice ='#price'+itemID;
+        price = $(selPrice).html();
+        
+        subtotal = parseInt(subtotal) + parseInt(price);
+        
+        $(selSub).html(subtotal);
+        
+        selQty = '#qty'+itemID
+        
+        num = $(selQty).val();
         num++;
         //AJAX INC
-        $(selector).val(num);
+        $(selQty).val(num);
         
         add = parseInt($('#atcNumIn').text());
         add++;
         $('#atcNumIn').text(add);
+        
+        endPrice = $('#totPriceID').html();
+        totalPrice = parseInt(endPrice) + parseInt(price);
+        $('#totPriceID').html(totalPrice);
+        
         
         $.ajax({
                 type: "POST",
@@ -24,10 +38,10 @@ $(document).ready(function() {
     $(this).on('click','.minus',function(){
         itemID = this.id
         
-        selector = '#aaa'+itemID
-        console.log(selector)
+        selQty = '#qty'+itemID
+        console.log(selQty)
         
-        num = $(selector).val();
+        num = $(selQty).val();
         if(num == 1){
             console.log("CANNOT GO LOWER THAN 1")
         }else{
@@ -35,22 +49,61 @@ $(document).ready(function() {
             add = parseInt($('#atcNumIn').text());
             add--;
             $('#atcNumIn').text(add);
-            //AJAX DEC
             
-             $.ajax({
+            selSub = '#sub'+itemID;
+            subtotal = $(selSub).html();
+
+            selPrice ='#price'+itemID;
+            price = $(selPrice).html();
+
+            subtotal = parseInt(subtotal) - parseInt(price);
+
+
+            $(selSub).html(subtotal);
+            
+            endPrice = $('#totPriceID').html();
+            totalPrice = parseInt(endPrice) - parseInt(price);
+            $('#totPriceID').html(totalPrice);
+            
+            $.ajax({
                 type: "POST",
                 url: "/cart/dec/"+itemID,
             }).done(function(data){});
             
         }
-        $(selector).val(num);
+            $(selQty).val(num);
     });
     
+    $(this).on('dblclick','.closePic',function(){
+        itemID = this.id;
+        
+        totalPrice = parseInt($('#totPriceID').html());
+        selSub = '#sub'+itemID;
+        subtotal = $(selSub).html();
+        totalPrice = totalPrice - parseInt(subtotal);
+        $('#totPriceID').html(totalPrice);
+        
+        selQty = '#qty'+itemID
+        num = $(selQty).val();
+        
+        add = parseInt($('#atcNumIn').text());
+        add = add - num;
+        $('#atcNumIn').text(add);
+        
+        $.ajax({
+                type: "POST",
+                url: "/cart/removeItem/"+itemID,
+        }).done(function(data){});
+        
+        selRow = "#row"+itemID
+        $(selRow).remove();
+    });
     
-    //ADMIN
-//    $(this).on('click', '.delButton', function(){
-//        $(".roe").remove();
-//    });
+    $(".closePic").hover(function(){
+        $(".toolTipHide").removeClass("toolTipHide").addClass("toolTip");
+    },function(){
+        $(".toolTip").removeClass("toolTip").addClass("toolTipHide");
+    });
     
     
 });

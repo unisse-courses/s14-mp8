@@ -11,9 +11,14 @@ exports.getCart = function(req,res){
          }else{
              var i;
              var totalCartItems = 0;
+             var totalPrice = 0;
+             var tempPrice = 0;
+             
              
              for(i = 0; i<cart.cartItems.length; i++){
                  totalCartItems += cart.cartItems[i].qty;
+                 tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
+                 totalPrice += tempPrice;
              }
              
 //             console.log(JSON.stringify(cart, null, 4));
@@ -21,7 +26,8 @@ exports.getCart = function(req,res){
                  Title: "Cart",
                  user: req.session.name,
                  cart : cart,
-                 total : totalCartItems
+                 total : totalCartItems,
+                 endPrice : totalPrice
              });
          }
     })
@@ -65,4 +71,9 @@ exports.incItemCart = function(req,res){
             });
         }
     });
+}
+
+exports.removeItem = function(req,res){
+    const itemID = req.params.id;
+    res.sendStatus(204);
 }

@@ -20,6 +20,7 @@ h2{
     width: 1100px;
     position: relative;
     left: 150px;
+    padding: 20px;
 }
 
 
@@ -78,7 +79,7 @@ input.milkNum{
 .cartPrice{
     position: relative;
     top: 10px;
-    left: 70px;
+    left: 90px;
 }
 
 .cartSubT{
@@ -90,6 +91,7 @@ input.milkNum{
     height: 15px;
     position: relative;
     top: 8px;
+    left: 25px;
 }
 
 .plusminBtn{
@@ -105,11 +107,32 @@ input.milkNum{
     right: 20px;
 }
 
-#btnCheck{
+.btnCheck{
     position: relative;
-    right: 170px;
-    bottom: 30px;
+    right: 35px;
+    bottom: -10px;
 }
 
+.totalPrice{
+    position: relative;
+    left: -35px;
+}
+
+.toolTipHide{
+    font-size: 14px;
+    position: relative;
+    left: 770px;
+    top: 60px;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.toolTip{
+    font-size: 14px;
+    position: relative;
+    left: 770px;
+    top: 60px;
+    z-index: 1;
+}
 
 

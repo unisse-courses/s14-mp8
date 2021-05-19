@@ -10,8 +10,8 @@
     <div style="color:white; text-align:center;">
         <h1><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Cart</h1>
     </div>
+    <span class='toolTipHide'><b>Double click to remove item</b></span>
     <div class="containerCart table-responsive">
-        
             <table class="table">
                     <thead>
                         <tr>
@@ -20,25 +20,28 @@
                             <th><span style="position:relative; left:50px;">Qty.</span></th>
                             <th></th>
                             <th><span style="position:relative;left:100px;">Price</span></th>
-                            <th><span style="position:relative;left:60px;">Subtotal</span></th>
+                            <th><span style="position:relative;left:80px;">Subtotal</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each cart.cartItems}}
-                            <tr class='roe'>
+                            <tr class='roe' id="row{{product._id}}">
                                 <td class='cartPicCont'><img src="{{product.img}}" class='cartPic'></td>
                                 <td><span class='itemName'>{{product.name}}</span></td>
-                                <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn" id='{{product._id}}'><input type="text" class="milkNum" id="aaa{{product._id}}" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn" id='{{product._id}}'></td>
-                                <td class='delButton'><img src="/img/close.png" class='closePic'></td>
-                                <td><span class='cartPrice'>${{product.price}}.00</span></td>
-                                <td><span class='cartPrice'>${{product.price}}.00</span></td>
+                                <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn" id='{{product._id}}'><input type="text" class="milkNum" id="qty{{product._id}}" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn" id='{{product._id}}'></td>
+                                <td class='delButton'><img src="/img/close.png" class='closePic' id="{{product._id}}"></td>
+                                <td><span class='cartPrice'></span><span class='cartPrice' id="price{{product._id}}">{{product.price}}</span><span class='cartPrice'>.00</span></td>
+                                <td><span class='cartPrice'></span><span class='cartPrice' id="sub{{product._id}}">{{subtotal product.price qty}}</span><span class='cartPrice'>.00</span></td>
                             </tr>
                         {{/each}}
                     </tbody>
               </table>
               <div class="total" style="float:right;">
-                        <span style="position: relative;left: -23px;">$450.00</span><br>
-                        <button type="button" class="btn btn-success" id="btnCheck">Checkout</button>
+                        <span class="totalPrice">Php </span><span class="totalPrice" id="totPriceID">{{endPrice}}</span><span class="totalPrice">.00</span>
+                        
+                        <br>
+                  
+                        <button type="button" class="btn btn-success btnCheck">Checkout</button>
               </div>
     </div>
 </div>

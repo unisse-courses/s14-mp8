@@ -36,6 +36,9 @@ app.engine( 'hbs', exphbs({
             this._sections[name] = options.fn(this);
             return null;
         },
+        subtotal : function(price, qty){
+              return price * qty;
+        },
   },
     handlebars : allowInsecurePrototypeAccess(handlebars),
 }));
