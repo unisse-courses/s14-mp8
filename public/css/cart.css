@@ -48,8 +48,7 @@ h2{
 }
 
 .itemName{
-    position: relative;
-    top: 15px;
+    position: absolute;
 }
 
 .itemDesc{
@@ -91,7 +90,7 @@ input.milkNum{
     height: 15px;
     position: relative;
     top: 8px;
-    left: 25px;
+    left: 50px;
 }
 
 .plusminBtn{
@@ -104,7 +103,7 @@ input.milkNum{
 
 .qtyCont{
     position: relative;
-    right: 20px;
+    right: -20px;
 }
 
 .btnCheck{
@@ -121,7 +120,7 @@ input.milkNum{
 .toolTipHide{
     font-size: 14px;
     position: relative;
-    left: 690px;
+    left: 670px;
     top: 60px;
     z-index: 1;
     visibility: hidden;
@@ -130,7 +129,7 @@ input.milkNum{
 .toolTip{
     font-size: 14px;
     position: relative;
-    left: 690px;
+    left: 670px;
     top: 60px;
     z-index: 1;
 }
