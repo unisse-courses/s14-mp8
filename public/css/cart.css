@@ -121,7 +121,7 @@ input.milkNum{
 .toolTipHide{
     font-size: 14px;
     position: relative;
-    left: 770px;
+    left: 690px;
     top: 60px;
     z-index: 1;
     visibility: hidden;
@@ -130,7 +130,7 @@ input.milkNum{
 .toolTip{
     font-size: 14px;
     position: relative;
-    left: 770px;
+    left: 690px;
     top: 60px;
     z-index: 1;
 }
