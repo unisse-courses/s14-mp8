@@ -127,13 +127,13 @@ exports.loginUser = function(req,res){
 
             } else {
               // passwords don't match
-              req.flash('error_msg', 'Incorrect password. Please try again.');
+              req.flash('error_msg', 'Incorrect Username or Password. Please try again.');
               res.redirect('/login');
             }
           });
         } else {
           // No user found
-          req.flash('error_msg', 'Unregistered Username. Please register.');
+          req.flash('error_msg', 'User not found.');
           res.redirect('/register');
         }
       }});
@@ -190,7 +190,6 @@ exports.updateUser = function(req,res){
     const {name, username, currPass, newPass1, newPass2, address} = req.body;
     
     if(currPass == undefined){
-        console.log("Update name and add only");
         var update ={
             $set : {name,address}
         }
@@ -201,7 +200,7 @@ exports.updateUser = function(req,res){
                 }else{
                     if(user){
                         console.log(user);
-                        req.flash('success_msg','Name and address has been updated');
+                        req.flash('success_msg','Updated!');
                         res.redirect('/profile');
                     }
                 }
@@ -233,7 +232,7 @@ exports.updateUser = function(req,res){
                                                     throw err;
                                                 }else{
                                                     console.log(user);
-                                                    req.flash('success_msg','Password Updated!');
+                                                    req.flash('success_msg','Updated!');
                                                     res.redirect('/profile');
                                                 }
                                             })
@@ -244,9 +243,12 @@ exports.updateUser = function(req,res){
                                         }
                                     })
                                 }else{
-                                    req.flash('error_msg', 'Passwords do not match.');
+                                    req.flash('error_msg', 'New Passwords do not match.');
                                     res.redirect('/profile');
                                 }
+                            }else{
+                               req.flash('error_msg', 'Current Password does not match.');
+                               res.redirect('/profile'); 
                             }
                         })
                     }
