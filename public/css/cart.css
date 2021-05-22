@@ -18,8 +18,8 @@ h2{
     color: black;
     height: auto;
     width: 1100px;
-    position: relative;
-    left: 150px;
+    position: static;
+    margin-left: 12%;
     padding: 20px;
 }
 

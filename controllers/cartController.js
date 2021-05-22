@@ -1,5 +1,4 @@
 const cartModel = require('../models/cart');
-const productModel = require('../models/product');
 
 exports.getCart = function(req,res){
     const userID = req.session.user;
@@ -74,8 +73,8 @@ exports.incItemCart = function(req,res){
 }
 
 exports.removeItem = function(req,res){
-    const itemID = req.params.id;
-    const userID = req.session.user;
+    const itemID = req.params.id
+    const userID = req.session.user
     
     cartModel.findOneAndUpdate({_id : userID}, {$pull : {"cartItems" : {product : itemID}}}, function(err,cart){
        if(err){
@@ -86,26 +85,3 @@ exports.removeItem = function(req,res){
     });
 }
 
-//Users.findOneAndUpdate({ "userId": "myId", "connections.dateConnectedUnix": 1334567891 },
-//    { $pull: { "connections.$.sessions" : { device: "mobile" } } }, (err) => {
-//        if (err) {
-//            return res.status(404).json({ message: 'Error' });
-//        }
-//        return res.status(200).json({
-//            success: true,
-//            message: 'success'
-//        });
-//    }
-//);
-
-exports.deleteItem = function(req, res) {
-  productModel.deleteOne({ _id:req.params.id }, (err) => {
-    if(err) {
-      //req.flash('error_msg', 'Could not add product. Please Try Again!');
-      res.send(err);
-    } else {
-      //req.flash("success_msg", 'Product added!');
-      res.redirect('/inventory')
-    }
-  });
-};

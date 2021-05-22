@@ -2,8 +2,6 @@ $(document).ready(function() {
     
     $("#passHide").hide();
     
-   
-    
     $("#passBtnMod").click(function(){
         $("#passHide").show();
         $(".EditProfile").removeClass("EditProfile").addClass("EditProfilePass");

@@ -1,107 +1,161 @@
 body {
-      font-family: Arial;
-      font-size: 17px;  
+    height: 100vh;
+    margin: 0;
+    background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png") repeat;
+    background-size: cover;
 }
 
-* {
-    box-sizing: border-box;
+.itemsHead{
+    display: inline;
+    font-size: 15px;
+    text-align: center;
 }
 
-.row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -50px;
+#it{
+   margin-right: 450px;
 }
 
-.col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
+#qt{
+   margin-right: 120px;
 }
 
-    .col-50 {
-      -ms-flex: 50%; /* IE10 */
-      flex: 50%;
-    }
+#pr{
+    
+}
 
-    .col-75 {
-      -ms-flex: 75%; /* IE10 */
-      flex: 75%;
-    }
+.itemSpecs{
+    background: #f7f7f7;
+    height: 70vh;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
 
-    .col-25,
-    .col-50,
-    .col-75 {
-      padding: 0 60px;
-    }
+hr{
+    border: 1px dashed black;
+}
 
-    .container {
-      background-color: #f2f2f2;
-      padding: 5px 20px 15px 20px;
-      {{!-- border: 1px solid black; --}}
-      {{!-- border-radius: 30px; --}}
-    }
+#checkLogo{
+}
 
-    .input[type=text] {
-      width: 100%;
-      margin-bottom: 20px;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
+#itemHeadUL{
+    margin: -15px;
+}
 
-    label {
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .icon-container {
-      margin-bottom: 20px;
-      padding: 7px 0;
-      font-size: 10px;
-    }
-
-    .btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      margin: 20px 0;
-      border: none;
-      width: 100%;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 17px;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    a {
-      color: #2196F3;
-    }
-
-    hr {
-      border: 1px solid lightgrey;
-    }
-
-    span.price {
-      float: right;
-      color: grey;
-    }
-
-    span.amount {
-      float: center;
-      color: grey;
-    }
+.customerSpecs{
+    background: #f7f7f7;
+    height: 70vh;
+    text-align: center;
+    position: relative;
+    left : 10px;
+}
 
 
-    @media (max-width: 800px) {
-      .row {
-        flex-direction: column-reverse;
-      }
-      .col-25 {
-        margin-bottom: 20px;
-      }
-    }
+.priceEnd{
+    width: auto;
+    position: absolute;
+    bottom: 130px;
+    text-align: left;
+    right: 20px;
+}
+
+.totHeaders{
+    position:relative;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.priHeaders{
+    position: relative;
+    margin-left: 10px;
+    float: right;
+}
+
+#divPrice{
+    width: 699.19px;
+    position: absolute;
+    bottom: 200px;
+}
+
+.itemTitle{
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 200px;
+}
+
+.itemsubT{
+    position: relative;
+    float: right;
+}
+
+.itemQty{
+    position: relative;
+    left: 83px;
+}
+
+.cartItemss{
+    font-family: "Courier New";
+}
+
+.payM{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.custPayment{
+    text-align: center;
+}
+
+.payMcont{
+    margin-top: 30px;
+    background: #262626;
+    height: 180px;
+}
+
+#phNum{
+    width: 200px;
+}
+
+#backTC{
+    margin-right: 20px;
+}
+
+.checkoutbtns{
+    position: absolute;
+    text-align: center;
+    bottom: 40px;
+    right: 20px;
+}
+
+#codDiv{
+    display: block;
+}
+
+#gcashDiv{
+    display: none;
+}
+
+#creditDiv{
+    display: none;
+}
+
+#teaPic{
+    position: relative;
+    top: 40px;
+    left: 0px;
+    height: 100px;
+}
+
+#checkoutLogo{
+    position: relative;
+    top: 40px;
+    height: 100px;
+}
+
+#rights{
+    position: absolute;
+    color: white;
+    bottom: 70px;
+    left: 140px;
+}

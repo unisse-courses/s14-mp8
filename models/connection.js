@@ -10,6 +10,8 @@ const options = {
   useFindAndModify: false
 };
 
+mongoose.set('useCreateIndex', true);
+
 mongoose.connect(dbURL, options);
 
 module.exports = mongoose;

@@ -1,55 +1,87 @@
 {{#section 'header'}}
     <title>Milk Tea Labs | Checkout</title>  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/checkout.css">
-
+    <script src="/scripts/checkout.js"></script>
 {{/section}}
-    
+
 <div class="row">
-    <div class="col-75">
-            <div class="container">
-                <form action="/action_page.php">
-                    <div class="row">
-                        <div class="col-50">
-                            <h3> Contact Information</h3>
-                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                <input type="text" id="fname" name="firstname" value="Christian Alcala">
-                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                <input type="text" id="email" name="email" value="alcala@gmail.com">
-                                <label for="adr"><i class="fa fa-address-card-o"></i> Delivery Address</label>
-                                <input type="text" id="adr" name="address" placeholder="Address">
-                                <label for="city"><i class="fa fa-institution"></i> City</label>
-                                <input type="text" id="city" name="city" placeholder="Mandaluyong">
-                                 <label for="phone"><i class="fa fa-institution"></i> Phone Number</label>
-                                <input type="number" id="phone" name="phone" placeholder="09173013974">
-
-                                 <label for="remark"><i class="fa fa-user"></i> Remarks</label>
-                                <input type="text" id="rmark" name="remark" placeholder="Pretty good">
+    <div class="col-lg-5 itemSpecs">
+        <div class="custInfo">
+            <h5 style="text-align:center;"><b><i class="fas fa-user-alt" style='font-size:20px'></i>&nbsp;Payment Information</b></h5>
+            <label>Customer Name</label>
+            <input type="text" value="{{user}}" id="custName"readonly>
+            
+            <label>Delivery Address</label>
+            <input type="text" value="{{address}}">            
+            
+            <label>Contact No.</label>
+            <input type="text" value="" placeholder="+63-917-***-**** / 0917-***-****" required>
+        </div>
         
-                        </div>
-                    </div>
-                
-           
-                    <div class="container">
-                        <h4>Order
-                        <span class="price" style="color:black">
-                        <i class="fa fa-shopping-cart"></i> 
-                        <b>4</b>
-                        </span>
-                        </h4>
-
-                    <p><a href="#">Boba Milk Tea</a>         <span class="price">Php 15 </span></p>
-                    <p><a href="#">Strawberry Milk Tea</a>   <span class="price">Php 15 </span></p>
-                    <p><a href="#">Chocolate Milk Tea </a>   <span class="price">Php 15 </span></p>
-                    <p><a href="#">Orange na  Milk Tea</a>   <span class="price">Php 15 </span></p>
-
-                    <hr>
-                    <p> SubTotal <span class="price" style="color:black"><b>Php 60 </b></span></p>
-                    <p>Delivery Fee <span class="price" style="color:black"><b>Php 49 </b></span></p>
-                    <p> Total Fee <span class="price" style="color:black"><b>Php 109 </b></span></p>
-                  </div>
-                <input type="submit" value="Check Out" class="btn">
-            </form>
+        <div class="custPayment">
+            <h6 style="text-align:center; font-size:20px;"><b><i class="fas fa-money-bill-wave"></i>Payment Method</b></h6>
+            
+            <div class="btn-group payM" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                    <input type="radio" name="options" id="cod" autocomplete="off" checked> Cash on Delivery
+              </label>
+              <label class="btn btn-primary">
+                    <input type="radio" name="options" id="gcash" autocomplete="off">GCASH
+              </label>
+              <label class="btn btn-primary">
+                    <input type="radio" name="options" id="creditC" autocomplete="off">Credit Card
+              </label>
+            </div>
+            
+            <div class="payMcont">
+                <img src="/img/logo2.png" id='checkoutLogo'>
+                <img src="/img/tea4.png" id="teaPic">
+                <span style="font-size: 10px;" id="rights">MILK TEA LAB © 2021 | ALL RIGHTS RESERVED</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-7 customerSpecs">
+        <img src="/img/logo.png" id="checklogo" class="img-rounded">
+        <hr>
+            <ul id="itemHeadUL">
+                <li class="itemsHead" id="it">Item</li>
+                <li class="itemsHead" id="qt">Qty.</li>
+                <li class="itemsHead" id="pr">Price</li>
+            </ul>
+        <hr>
+        {{#each cart.cartItems}}
+            <div class="cartItemss">
+                <span class="itemTitle">{{product.name}}</span>
+                <span class="itemQty">{{qty}}</span>
+                <span class="itemsubT">{{subtotal product.price qty}}.00</span>
+            </div>
+        {{/each}}
+        
+        <div>
+            
+        </div>
+        <hr id="divPrice">
+        <div class="priceEnd">
+            
+            <div class="subT">
+                <span class="totHeaders">Subtotal</span>
+                <span class="priHeaders">Php {{subTotal}}.00</span>
+            </div>
+            <div class="delFee">
+                <span class="totHeaders">Delivery Fee</span>
+                <span class="priHeaders">Php 49.00</span>
+            </div>
+            <div class="grandTot">
+                <span class="totHeaders">Grand Total</span>
+                <span class="priHeaders" style="font-size: 20px;"><b>Php {{endPrice}}.00</b></span>
+            </div>
+        </div>
+        
+        <div class="checkoutbtns">
+            <a href='/cart' id="backTC"><i class='fas fa-arrow-left'></i>&nbsp;Go back to cart<i class="fas fa-shopping-cart"></i></a>
+            <button class="btn" id="btnCheckoutt">Checkout</button>
         </div>
     </div>
 </div>
+    

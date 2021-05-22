@@ -18,9 +18,9 @@ const moment = require('moment');
 //Routes imports
 const cartRouter = require('./routes/cartRoutes');
 const productRouter = require('./routes/productRoutes');
-const transactionRouter = require('./routes/transactionRoutes');
 const userRouter = require('./routes/userRoutes');
 const indexRouter = require('./routes/index');
+const checkoutRouter = require('./routes/checkoutRoutes');
 
 const port = envPort || 3000;
 const app = express();
@@ -79,5 +79,7 @@ app.use('/menu', productRouter);
 app.use('/login', userRouter);
 app.use('/profile', userRouter);
 app.use('/cart', cartRouter);
+app.use('/checkout', checkoutRouter);
+
 //app.use('/admin', adminRouter);
 //app.use('/admin', productRouter);
