@@ -3,34 +3,41 @@ const cartModel = require('../models/cart');
 exports.getCart = function(req,res){
     const userID = req.session.user;
     
-   cartModel.findOne({_id : userID})
-        .populate({path: "cartItems.product", model: "products"}).lean().exec(function(err,cart){
-         if(err){
-             console.log(err);
-         }else{
-             var i;
-             var totalCartItems = 0;
-             var totalPrice = 0;
-             var tempPrice = 0;
-             
-            
-            for(i = 0; i<cart.cartItems.length; i++){
-                 totalCartItems += cart.cartItems[i].qty;
-                 tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
-                 totalPrice += tempPrice;
-            }
+    if(userID == undefined){
+       req.flash('error_msg', 'Please Log In');
+       res.redirect('/login');
+    }
+    else{
+        cartModel.findOne({_id : userID}).populate({path: "cartItems.product", model:"products"}).lean().exec(function(err,cart){
+             if(err){
+                 console.log(err);
+             }else{
+                 var i;
+                 var totalCartItems = 0;
+                 var totalPrice = 0;
+                 var tempPrice = 0;
 
-             
-//             console.log(JSON.stringify(cart, null, 4));
-             res.render('cart', {
-                 Title: "Cart",
-                 user: req.session.name,
-                 cart : cart,
-                 total : totalCartItems,
-                 endPrice : totalPrice
-             });
-         }
-    })
+
+                for(i = 0; i<cart.cartItems.length; i++){
+                     totalCartItems += cart.cartItems[i].qty;
+                     tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
+                     totalPrice += tempPrice;
+                }
+
+
+    //             console.log(JSON.stringify(cart, null, 4));
+                 res.render('cart', {
+                     Title: "Cart",
+                     user: req.session.name,
+                     cart : cart,
+                     total : totalCartItems,
+                     endPrice : totalPrice
+                 });
+             }
+        })
+    }
+    
+
 }
 
 exports.decItemCart = function(req,res){
