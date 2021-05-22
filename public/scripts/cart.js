@@ -90,7 +90,8 @@ $(document).ready(function() {
         
         add = add - num;
         if(add == 0){
-            $('.btnCheck').addClass("disabled");
+            $('.btnCheck').attr("href", "/menu");
+            $('.btnCheck').html("Order Now");
             $('.toolTip').removeClass("toolTip").addClass("toolTipHide");
             $('tbody').html("<tr><td></td><td>Shopping Cart is Empty</td><td></td><td></td><td></td><td></td></tr>");
             $('#atcNumIn').text(add);
