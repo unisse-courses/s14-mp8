@@ -10,10 +10,10 @@ body{
 }
 
 .LoginReg{
-    width: 500px;
+    width: 150px;
     position: relative;
-    left: 25px;
-    top: 20px;
+    /* left: 200px; */
+    top: 30px;
 }
 
 .logRegForm{
@@ -53,4 +53,8 @@ label{
 .btnLogReg{
     position: relative;
     top: 10px;
+}
+
+.imgCont{
+    text-align: center;
 }
