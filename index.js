@@ -39,6 +39,14 @@ app.engine( 'hbs', exphbs({
         subtotal : function(price, qty){
               return price * qty;
         },
+        isEmpty: function(total){
+            if(total > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
   },
     handlebars : allowInsecurePrototypeAccess(handlebars),
 }));

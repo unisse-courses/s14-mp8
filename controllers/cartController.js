@@ -13,12 +13,13 @@ exports.getCart = function(req,res){
              var totalPrice = 0;
              var tempPrice = 0;
              
-             
-             for(i = 0; i<cart.cartItems.length; i++){
+            
+            for(i = 0; i<cart.cartItems.length; i++){
                  totalCartItems += cart.cartItems[i].qty;
                  tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
                  totalPrice += tempPrice;
-             }
+            }
+
              
 //             console.log(JSON.stringify(cart, null, 4));
              res.render('cart', {

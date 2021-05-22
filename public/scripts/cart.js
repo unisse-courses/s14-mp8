@@ -87,8 +87,17 @@ $(document).ready(function() {
         num = $(selQty).val();
         
         add = parseInt($('#atcNumIn').text());
+        
         add = add - num;
-        $('#atcNumIn').text(add);
+        if(add == 0){
+            $('.btnCheck').addClass("disabled");
+            $('.toolTip').removeClass("toolTip").addClass("toolTipHide");
+            $('tbody').html("<tr><td></td><td>Shopping Cart is Empty</td><td></td><td></td><td></td><td></td></tr>");
+            $('#atcNumIn').text(add);
+        }else{
+            $('#atcNumIn').text(add);    
+        }
+        
         
         $.ajax({
                 type: "POST",

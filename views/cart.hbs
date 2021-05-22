@@ -24,24 +24,40 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {{#if (isEmpty total)}}
                         {{#each cart.cartItems}}
-                            <tr class='roe' id="row{{product._id}}">
-                                <td class='cartPicCont'><img src="{{product.img}}" class='cartPic'></td>
-                                <td><span class='itemName'>{{product.name}}</span></td>
-                                <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn" id='{{product._id}}'><input type="text" class="milkNum" id="qty{{product._id}}" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn" id='{{product._id}}'></td>
-                                <td class='delButton'><img src="/img/close.png" class='closePic' id="{{product._id}}"></td>
-                                <td><span class='cartPrice'></span><span class='cartPrice' id="price{{product._id}}">{{product.price}}</span><span class='cartPrice'>.00</span></td>
-                                <td><span class='cartPrice'></span><span class='cartPrice' id="sub{{product._id}}">{{subtotal product.price qty}}</span><span class='cartPrice'>.00</span></td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
+                                <tr class='roe' id="row{{product._id}}">
+                                    <td class='cartPicCont'><img src="{{product.img}}" class='cartPic'></td>
+                                    <td><span class='itemName'>{{product.name}}</span></td>
+                                    <td class="qtyCont"><img src="/img/minus.png" class="minus plusminBtn" id='{{product._id}}'><input type="text" class="milkNum" id="qty{{product._id}}" value='{{qty}}' readonly><img src="/img/add.png" class="plus plusminBtn" id='{{product._id}}'></td>
+                                    <td class='delButton'><img src="/img/close.png" class='closePic' id="{{product._id}}"></td>
+                                    <td><span class='cartPrice'></span><span class='cartPrice' id="price{{product._id}}">{{product.price}}</span><span class='cartPrice'>.00</span></td>
+                                    <td><span class='cartPrice'></span><span class='cartPrice' id="sub{{product._id}}">{{subtotal product.price qty}}</span><span class='cartPrice'>.00</span></td>
+                                </tr>
+                            {{/each}}
+                    {{else}}
+                        <tr>
+                            <td></td>
+                            <td>Shopping Cart is Empty</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {{/if}}
+                        </tbody>
+                    
               </table>
               <div class="total" style="float:right;">
                         <span class="totalPrice">Php </span><span class="totalPrice" id="totPriceID">{{endPrice}}</span><span class="totalPrice">.00</span>
                         
                         <br>
-                    
-                        <a href="/checkout" class="btn btn-primary btnCheck">Checkout</a>
+                        {{#if (isEmpty total)}}
+                            <a href="/checkout" class="btn btn-primary btnCheck">Checkout</a>
+                        {{else}}
+                            <a href="#" class="btn btn-primary btnCheck disabled">Checkout</a>
+                        {{/if}}
               </div>
     </div>
 </div>
+

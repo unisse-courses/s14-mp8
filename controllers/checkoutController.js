@@ -21,25 +21,35 @@ exports.getCheckout = function(req,res){
                      var tempPrice = 0;
                      var totalPricewDel = 0;
                      var address = user.address;
-
-                     for(i = 0; i<cart.cartItems.length; i++){
-                         totalCartItems += cart.cartItems[i].qty;
-                         tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
-                         totalPrice += tempPrice;
+                     
+                     if(cart.cartItems.length == 0){
+                         req.flash('error_msg', 'You cannot checkout without any items');
+                         res.redirect('/menu');
+                     }
+                     else{ 
+                        for(i = 0; i<cart.cartItems.length; i++){
+                            totalCartItems += cart.cartItems[i].qty;
+                            tempPrice = cart.cartItems[i].product.price * cart.cartItems[i].qty;
+                            totalPrice += tempPrice;
+                        }
+                        
+                         totalPricewDel = totalPrice + 49;
+                         
+//                        console.log(JSON.stringify(cart, null, 4));
+                        
+                         res.render('checkout', {
+                             title: "Checkout",
+                             user: req.session.name,
+                             cart : cart,
+                             total : totalCartItems,
+                             subTotal : totalPrice,
+                             endPrice : totalPricewDel,
+                             address : address,
+                         });
+                         
                      }
 
-                        totalPricewDel = totalPrice + 49;
-
-        //             console.log(JSON.stringify(cart, null, 4));
-                     res.render('checkout', {
-                         title: "Checkout",
-                         user: req.session.name,
-                         cart : cart,
-                         total : totalCartItems,
-                         subTotal : totalPrice,
-                         endPrice : totalPricewDel,
-                         address : address,
-                     });
+                     
                  }
             })
         }
