@@ -59,17 +59,12 @@ exports.getCheckout = function(req,res){
 exports.confCheckout = function(req,res){
     const userID = req.session.user
     
-    //GET FirstProduct 
-    //GET totalQTY
-    //GET totalPrice
-    //Place dateOrdered
-    //Place Status 1
-    
-    cartModel.findOneAndUpdate({_id : userID}, {$pullall : {"cartItems" : []}}, function(err,cart){
-       if(err){
-           throw(err)
-       } else{
-           res.sendStatus(200)
-       }
+    cartModel.update({_id:userID}, { $set: { cartItems: []}}, function(err, cart){
+        if(err){
+            throw err;
+        }else{
+            req.flash("success_msg", 'Thank you for ordering at Milk Tea Labs! Enjoy!');
+            res.redirect('/')
+        }
     });
-}
+    }

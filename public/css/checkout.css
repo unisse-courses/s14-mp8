@@ -159,3 +159,47 @@ hr{
     bottom: 70px;
     left: 140px;
 }
+
+.modal-content{
+    text-align: center;
+}
+
+
+
+
+
+.modal-footer{
+    text-align: center;
+}
+
+.iconN{
+    font-size: 14px;
+}
+
+
+#orderNumber{
+    background: #afd8ff;
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.orderNumberCont{
+    text-align: center;
+}
+
+.in{
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.cont{
+    display: block;
+}
+
+
+#qrCode{
+    height: 200px;
+}
